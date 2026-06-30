@@ -2,7 +2,7 @@ import AnimateIn from './AnimateIn'
 
 // Gdy właściciel dostarczy kod embed z panelu nakiedy.pl,
 // podmień EMBED_SRC na właściwy URL lub wstaw kod snippet zamiast iframe.
-const EMBED_SRC = "https://its.nakiedy.pl/em/?h=1500"
+const EMBED_SRC = "https://its.nakiedy.pl/em/?h=1050"
 
 export default function Rezerwacje() {
   return (
@@ -34,12 +34,13 @@ export default function Rezerwacje() {
         </AnimateIn>
 
         <AnimateIn delay={100}>
-          <div className="rounded-2xl overflow-hidden border border-white/8 bg-[#080b14]">
+          {/* overflow-x: auto na mobile — widget ma minimalną szerokość wewnętrzną */}
+          <div className="rounded-2xl border border-white/8 bg-[#080b14] overflow-hidden overflow-x-auto">
             <iframe
               src={EMBED_SRC}
               id="nakiedyWidget"
               title="Rezerwacja stołu — Instytut Tenisa Stołowego"
-              style={{ width: '100%', height: '1560px', border: 0 }}
+              style={{ width: '100%', minWidth: '360px', height: '1100px', border: 0 }}
               loading="lazy"
             />
           </div>
