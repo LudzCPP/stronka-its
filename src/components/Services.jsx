@@ -26,7 +26,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-[#080b14]">
+    <section id="services" className="py-24 bg-[#080b14] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
 
         <AnimateIn>

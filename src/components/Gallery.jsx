@@ -4,7 +4,7 @@ import img3 from '../assets/its3.jpg'
 
 export default function Gallery() {
   return (
-    <section className="py-3 bg-[#080b14]">
+    <section className="py-8 lg:py-3 bg-[#080b14] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Mobile: its1 + its3 (its2 jest już w sekcji O nas, pomijamy) */}

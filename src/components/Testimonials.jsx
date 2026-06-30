@@ -17,7 +17,7 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-[#0f1423]">
+    <section id="testimonials" className="py-24 bg-[#0f1423] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
 
         <AnimateIn>

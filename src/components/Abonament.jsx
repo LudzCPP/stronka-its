@@ -37,7 +37,7 @@ export default function Abonament() {
   const [selectedPlan, setSelectedPlan] = useState(null)
 
   return (
-    <section id="abonamenty" className="py-24 bg-[#0f1423]">
+    <section id="abonamenty" className="py-24 bg-[#0f1423] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="flex items-center gap-3 mb-4">

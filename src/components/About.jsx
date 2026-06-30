@@ -9,7 +9,7 @@ const STATS = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-[#0f1423]">
+    <section id="about" className="py-24 bg-[#0f1423] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 

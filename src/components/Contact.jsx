@@ -4,7 +4,7 @@ const MAPS_SRC = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.710
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-[#080b14]">
+    <section id="contact" className="py-24 bg-[#080b14] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
 
         <AnimateIn>
