@@ -1,0 +1,127 @@
+Wygeneruj kompletną stronę-wizytówkę na podstawie wypełnionego formularza w tym projekcie.
+
+KROK 1 — Odczytaj dane
+Przeczytaj plik `input_template.txt` z katalogu projektu — zawiera wszystkie dane klienta.
+
+KROK 2 — Przejrzyj dostępne zdjęcia i logo
+Wylistuj pliki w `src/assets/` i przypisz każdy plik do roli:
+
+  LOGO (plik z "logo" w nazwie lub wersja removebg):
+  → Użyj w Navbar (lewa strona, h-10 w-auto) ORAZ w sekcji Hero (nad headline, h-20 w-auto)
+  → Jeśli nie ma logo — pomiń całkowicie, nie generuj placeholdera
+
+  ZDJĘCIA — przypisanie w tej kolejności:
+  → Najbardziej efektowne zdjęcie miejsca/akcji   → Hero (tło z ciemnym overlayem)
+  → Zdjęcie wnętrza/recepcji/zaplecza             → About (prawa kolumna, <img>)
+  → Każde kolejne zdjęcie (2-3 szt.)              → Gallery (nowa sekcja między About a Services)
+  → Zdjęcia produktów/realizacji (jeśli są)       → karty Services
+
+  Zdjęcia importuj przez: import nazwaZdjecia from '../assets/nazwa.jpg'
+  Używaj WYŁĄCZNIE plików które faktycznie istnieją w src/assets/.
+
+KROK 3 — Dobierz paletę kolorów
+Priorytet źródła kolorów (od najwyższego):
+  1. Klient podał KOLOR_DOMINUJACY_HEX → to jest kolor główny
+  2. Logo lub zdjęcia mają wyraźny kolor dominujący → wyciągnij go wizualnie i użyj
+  3. Brak powyższych → dobierz z tabeli branżowej w CLAUDE.md
+
+⚠️ KRYTYCZNE — implementacja kolorów w Tailwind:
+Zawsze używaj arbitralnych wartości hex bezpośrednio w klasach JSX:
+    bg-[#0075C4]    text-[#0075C4]    border-[#0075C4]/30    hover:bg-[#0075C4]/10
+
+NIE dodawaj kolorów do tailwind.config.js extend.colors.
+Powód: klasy z extend.colors nie są generowane w trybie dev po zmianie konfiguracji
+(cache JIT), co skutkuje przezroczystymi tłami i niewidocznym tekstem
+(np. text-white na faktycznie białym tle karty = nieczytelna strona).
+
+KROK 4 — Utwórz lub wypełnij komponenty
+Wykonuj w tej kolejności, równolegle gdzie możliwe:
+
+── a) src/components/Navbar.jsx ──────────────────────────────────────────────
+Jeśli plik nie istnieje, UTWÓRZ go. Zawiera:
+- Logo jako <img> (jeśli dostępne) + nazwa firmy text-white po prawej
+- Linki nawigacyjne: O nas | Oferta | Opinie | Kontakt (hidden md:flex)
+- Przycisk CTA: <a href="tel:..."> z numerem telefonu + ikona SVG telefonu
+- Klasy kontenera: fixed top-0 inset-x-0 z-50 bg-[#ciemny]/90 backdrop-blur-md border-b border-white/5
+Zaimportuj i wstaw jako pierwszy element w App.jsx.
+
+── b) src/components/Hero.jsx ────────────────────────────────────────────────
+- Tło: zdjęcie jako <img className="absolute inset-0 w-full h-full object-cover">
+- OBOWIĄZKOWY PODWÓJNY OVERLAY — nigdy sam gradient:
+    <div className="absolute inset-0 bg-[#ciemny]/65" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#ciemny] via-[#ciemny]/40 to-transparent" />
+  Uzasadnienie: sam gradient nie chroni górnej części obrazu (jasne piłki,
+  białe linie stołu, niebo itp.) — solid base zapewnia minimalny kontrast wszędzie.
+- Logo jako <img> nad headline (h-20 w-auto, jeśli dostępne)
+- Eyebrow: lokalizacja firmy, kolor akcentu
+- H1: GLOWNA_OBIETNICA, text-4xl→lg:text-6xl font-extrabold text-white
+- Podtytuł: PODNAGLOWEK_HERO, text-gray-200 (nie text-gray-300 — za ciemne)
+- Trust bar: 3 bullet points (ocena Google, godziny, karta/certyfikat)
+- Układ: flex items-end min-h-screen (tekst przy dolnej krawędzi)
+
+── c) src/components/About.jsx ───────────────────────────────────────────────
+- Prawa kolumna: <img> ze zdjęciem wnętrza, rounded-2xl, aspect-[4/3] object-cover
+- Opcjonalny efekt glow: div z absolute -inset-3 blur-xl bg-[kolor]/20 za zdjęciem
+- Jeśli brak właściciela → zastąp "wizytówkę osoby" badgem branżowym
+  (np. ŁLTS, certyfikat, partnerstwo) — nigdy nie zostawiaj placeholder "Jan Kowalski"
+- Statystyki: 3 wartości z STATYSTYKA_* w kolorze akcentu (text-[akcent])
+
+── d) src/components/Gallery.jsx ─────────────────────────────────────────────
+UTWÓRZ tę sekcję jeśli po przypisaniu do Hero/About zostały ≥ 2 nieużyte zdjęcia.
+- Desktop (lg:grid): układ 2/3 + 1/3 z dwoma zdjęciami w kolumnie po prawej
+    <div className="hidden lg:grid grid-cols-3 gap-3 h-[440px]">
+      <div className="col-span-2 rounded-2xl overflow-hidden">
+        <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+      </div>
+      <div className="flex flex-col gap-3">
+        <div className="flex-1 rounded-2xl overflow-hidden">...</div>
+        <div className="flex-1 rounded-2xl overflow-hidden">...</div>
+      </div>
+    </div>
+- Mobile: tylko pierwsze zdjęcie (lg:hidden, aspect-video)
+- Sekcja: ciemne tło, py-3 (minimalne odstępy — galeria "skleja się" z sąsiednimi sekcjami)
+Zaimportuj i wstaw między About a Services w App.jsx.
+
+── e) src/components/Services.jsx ────────────────────────────────────────────
+- Sekcja z ciemnym tłem
+- Grid: sm:grid-cols-2 lg:grid-cols-3 gap-4 (zwykły gap, nie gap-px)
+- Każda karta: bg-[#nieco-ciemniejszy] border border-white/8 rounded-xl p-8
+  hover: hover:border-[#akcent]/50 hover:bg-[#jeszcze-ciemniejszy]
+- Numerowana odznaka: 01, 02, 03... (border circle, kolor akcentu) — NIE emoji
+- Tytuł karty: text-white font-bold — ZAWSZE widoczny (nie tylko na hover)
+- Opis: text-gray-200 text-base leading-relaxed (nie text-gray-300 — za ciemne)
+- Ostatnia komórka gridu: CTA "Zadzwoń i zarezerwuj" z numerem telefonu
+
+── f) src/components/Testimonials.jsx ────────────────────────────────────────
+Uzupełnij 3 opinie z OPINIA_1/2/3 z input_template.txt.
+Karty: bg-[ciemne] border border-white/8
+
+── g) src/components/Contact.jsx ─────────────────────────────────────────────
+- Ikony przy danych kontaktowych: SVG (Heroicons) — NIE emoji
+  Wzór ikon: phone, envelope, map-pin, clock (stroke, nie fill)
+- Mapa: <iframe src={LINK_GOOGLE_MAPS_EMBED}> wewnątrz div h-96 rounded-2xl overflow-hidden
+- Numer telefonu: największy element, text-xl font-bold, klikalny tel:
+
+── h) src/App.jsx ────────────────────────────────────────────────────────────
+Kolejność komponentów:
+  <Navbar /> → <Hero /> → <About /> → <Gallery /> → <Services />
+  → <Testimonials /> → <Contact /> → <footer />
+Footer: bg-[najciemniejszy] border-t border-white/8, nazwa firmy + rok + adres.
+
+KROK 5 — Zaktualizuj index.html
+- <title>: "[NAZWA_FIRMY] — [skrót GLOWNA_OBIETNICA] | [LOKALIZACJA]"
+- Dodaj <meta name="description" content="..."> — max 160 znaków, zawiera telefon
+
+KROK 6 — Zbuduj projekt
+Uruchom: npm run build
+Projekt musi buildować bez błędów. Jeśli są błędy — napraw je przed raportem.
+Po zakończeniu pracy zrestartuj dev server: npm run dev
+
+KROK 7 — Podsumowanie
+Podaj:
+- Źródło palety (logo / zdjęcia / tabela branżowa) + użyte kody hex
+- Schemat kolorystyczny (czy full-dark czy jasno-ciemny i dlaczego)
+- Lista zdjęć → do której sekcji trafi każde
+- Czy Navbar i Gallery zostały utworzone
+- Lista wszystkich zmienionych / nowo utworzonych plików
+- Decyzje redakcyjne (co skrócono, co pominięto i dlaczego)

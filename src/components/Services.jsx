@@ -1,0 +1,106 @@
+const SERVICES = [
+  {
+    title: "Rezerwacja stołu online",
+    description: "Wybierz termin i zarezerwuj stół na its.nakiedy.pl — szybko, bez dzwonienia, dla 2 lub 4 osób od 32 zł / 90 min.",
+  },
+  {
+    title: "Abonamenty miesięczne",
+    description: "Nieograniczony dostęp do sali przez cały miesiąc — abonament śniadaniowy od 85 zł lub max za 125 zł.",
+    href: "#abonamenty",
+  },
+  {
+    title: "Treningi indywidualne",
+    description: "Praca 1-na-1 z trenerem przez 60 lub 90 minut — skuteczna droga do poprawy techniki i wyników.",
+  },
+  {
+    title: "Turnieje i miniturnieje",
+    description: "Regularne turnieje ITS dla każdego poziomu zaawansowania — rywalizacja i emocje od 11 zł.",
+  },
+  {
+    title: "Medicover Sport",
+    description: "Akceptujemy karty Medicover Sport — rezerwacja dla dwóch posiadaczy karty bezpłatnie.",
+  },
+]
+
+export default function Services() {
+  return (
+    <section id="services" className="py-24 bg-[#080b14]">
+      <div className="max-w-6xl mx-auto px-6">
+
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-px w-8 bg-[#0075C4]" />
+          <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">Oferta</span>
+        </div>
+
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 gap-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            Co oferujemy
+          </h2>
+          <p className="text-gray-300 max-w-sm lg:text-right text-base">
+            Rezerwacje, abonamenty, treningi i turnieje — wszystko w jednym miejscu.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SERVICES.map((service, i) => {
+            const inner = (
+              <>
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#0075C4]/50 text-[#0075C4] text-xs font-bold mb-6 group-hover:border-[#0075C4] group-hover:bg-[#0075C4]/10 transition-colors">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-gray-300 text-base leading-relaxed">{service.description}</p>
+                {service.href && (
+                  <span className="inline-block mt-4 text-xs font-semibold text-[#0075C4] group-hover:underline">Kup abonament →</span>
+                )}
+              </>
+            )
+            return service.href ? (
+              <a
+                key={service.title}
+                href={service.href}
+                className="bg-[#0f1423] border border-white/8 rounded-xl p-8 hover:border-[#0075C4]/50 hover:bg-[#161d33] transition-all duration-200 group block"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div
+                key={service.title}
+                className="bg-[#0f1423] border border-white/8 rounded-xl p-8 hover:border-[#0075C4]/50 hover:bg-[#161d33] transition-all duration-200 group"
+              >
+                {inner}
+              </div>
+            )
+          })}
+
+          {/* CTA — 6. komórka */}
+          <div className="bg-[#0f1423] border border-white/8 rounded-xl p-8 flex items-center justify-center">
+            <a
+              href="https://its.nakiedy.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-3 text-center group"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#0075C4] flex items-center justify-center group-hover:bg-blue-700 transition-colors">
+                <CalendarIcon />
+              </div>
+              <span className="text-white font-semibold text-sm leading-tight">
+                Zarezerwuj stół online
+              </span>
+              <span className="text-[#0075C4] font-bold">its.nakiedy.pl</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+function CalendarIcon() {
+  return (
+    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  )
+}

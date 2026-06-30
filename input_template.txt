@@ -1,0 +1,137 @@
+================================================================
+  FORMULARZ WSADOWY KLIENTA — STRONA WIZYTÓWKA
+  Wypełnij każde pole. Nie usuwaj nagłówków sekcji.
+  Puste pole = domyślna treść zastępcza w szablonie.
+================================================================
+
+--- SEKCJA 1: DANE PODSTAWOWE ---
+
+NAZWA_FIRMY:
+Instytut Tenisa Stołowego
+
+BRANZA:
+obiekt sportowy / tenis stołowy
+
+LOKALIZACJA:
+Łódź, ul. Śnieżna 5
+
+ROK_ZALOZENIA:
+[nie podano]
+
+WLASCICIEL_IMIE_NAZWISKO:
+[nie podano]
+
+WLASCICIEL_ROLA:
+[nie podano]
+
+--- SEKCJA 2: OFERTA I OBIETNICA ---
+
+GLOWNA_OBIETNICA:
+Profesjonalna sala tenisa stołowego otwarta 7 dni w tygodniu.
+
+PODNAGLOWEK_HERO:
+Graj kiedy chcesz — sala dostępna od 6:00 do 24:00. Abonamenty, rezerwacje stołów i treningi indywidualne w jednym miejscu w Łodzi.
+
+USLUGA_1_NAZWA:
+Rezerwacja stołu
+USLUGA_1_OPIS:
+Zarezerwuj stół dla 2 lub 4 osób i graj w profesjonalnych warunkach już od 32 zł / 90 min.
+
+USLUGA_2_NAZWA:
+Abonamenty miesięczne
+USLUGA_2_OPIS:
+Nieograniczony dostęp do sali przez cały miesiąc — abonament śniadaniowy od 85 zł lub max za 125 zł.
+
+USLUGA_3_NAZWA:
+Treningi indywidualne
+USLUGA_3_OPIS:
+Praca 1-na-1 z trenerem przez 60 lub 90 minut — skuteczna droga do poprawy techniki i wyników.
+
+USLUGA_4_NAZWA:
+Turnieje i miniturnieje
+USLUGA_4_OPIS:
+Regularne turnieje i miniturnieje ITS dla każdego poziomu — sprawdź się w rywalizacji już od 11 zł.
+
+USLUGA_5_NAZWA:
+Medicover Sport
+USLUGA_5_OPIS:
+Akceptujemy karty Medicover Sport — pierwsze wejście i aktywacja usługi w cenie standardowej rezerwacji.
+
+--- SEKCJA 3: DANE KONTAKTOWE ---
+
+TELEFON:
++48 533 644 535
+
+EMAIL:
+tenisstolowy.lodz@gmail.com
+
+ADRES_ULICA:
+ul. Śnieżna 5
+
+ADRES_MIASTO:
+92-103 Łódź
+
+GODZINY_OTWARCIA:
+Codziennie 6:00–24:00 (obsługa sali: 9:00–21:00)
+
+LINK_GOOGLE_MAPS_EMBED:
+https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.710796839028!2d19.50030557694348!3d51.79317168978637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bcb1a4c553e47%3A0xf46f55e5d3d3fe7e!2sInstytut%20Tenisa%20Sto%C5%82owego!5e0!3m2!1spl!2spl!4v1782810428758!5m2!1spl!2spl
+
+--- SEKCJA 4: O FIRMIE ---
+
+HISTORIA_AKAPIT_1:
+Instytut Tenisa Stołowego to profesjonalny obiekt w sercu Łodzi, stworzony z myślą o graczach na każdym poziomie zaawansowania. Sala dostępna jest 7 dni w tygodniu od 6:00 do 24:00 — bo wiemy, że pasja nie zna stałych godzin.
+
+HISTORIA_AKAPIT_2:
+Oferujemy profesjonalne warunki dla wymagających graczy: rezerwacje stołów, abonamenty miesięczne, treningi z trenerem oraz regularne turnieje. Jesteśmy oficjalnym obiektem Łódzkiej Ligi Tenisa Stołowego (ŁLTS).
+
+STATYSTYKA_1_WARTOSC:
+4,9/5
+STATYSTYKA_1_ETYKIETA:
+Średnia ocen Google
+
+STATYSTYKA_2_WARTOSC:
+7 dni
+STATYSTYKA_2_ETYKIETA:
+W tygodniu do Twojej dyspozycji
+
+STATYSTYKA_3_WARTOSC:
+6:00–24:00
+STATYSTYKA_3_ETYKIETA:
+Godziny otwarcia każdego dnia
+
+--- SEKCJA 5: OPINIE Z GOOGLE (3 OPINIE) ---
+
+OPINIA_1_IMIE:
+Adam W.
+OPINIA_1_TRESC:
+Świetne miejsce, super atmosfera, czysto. Super!
+
+OPINIA_2_IMIE:
+Maksymilian
+OPINIA_2_TRESC:
+Spoko miejsce dobra cena Polecam
+
+OPINIA_3_IMIE:
+Marcin K.
+OPINIA_3_TRESC:
+Kameralny klub bez zadęcia. Fajni ludzie.
+
+--- SEKCJA 6: STYL WIZUALNY ---
+
+PREFEROWANY_STYL:
+ENERGICZNY — ciemne tło (slate-900 / zinc-900) z akcentem orange-500. Klimat sportowy, dynamiczny, profesjonalny. Kojarzy się z ruchem i rywalizacją, a jednocześnie buduje zaufanie do obiektu.
+
+KOLOR_DOMINUJACY_HEX:
+[nie podano — stosuj paletę Tailwind zgodną ze stylem ENERGICZNY]
+
+DODATKOWE_UWAGI:
+- Obiekt akceptuje karty Medicover Sport — warto to wyróżnić jako osobny badge lub ikonę w sekcji usług.
+- Klub prowadzi rozgrywki ligowe ŁLTS (mecze ligowe bezpłatne / promocyjne stawki) — można to wspomnieć w sekcji "O nas" jako dowód profesjonalizmu.
+- Brak danych właściciela — sekcję "O nas" opieramy na misji i warunkach obiektu.
+- Brak adresu e-mail — sekcja kontaktowa opiera się wyłącznie na telefonie i adresie.
+- Cennik jest rozbudowany — rozważ osobną sekcję cennikową lub akordeon z kategoriami (Abonamenty / Rezerwacje / Treningi / Medicover).
+
+================================================================
+  KONIEC FORMULARZA
+================================================================
