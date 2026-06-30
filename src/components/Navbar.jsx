@@ -5,6 +5,7 @@ const LINKS = [
   ['#about', 'O nas'],
   ['#galeria', 'Galeria'],
   ['#services', 'Oferta'],
+  ['#rezerwacje', 'Rezerwacje'],
   ['#abonamenty', 'Abonamenty'],
   ['#testimonials', 'Opinie'],
   ['#contact', 'Kontakt'],
