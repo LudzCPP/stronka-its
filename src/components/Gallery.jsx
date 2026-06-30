@@ -7,18 +7,13 @@ export default function Gallery() {
     <section className="py-3 bg-[#080b14]">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* Mobile: główne zdjęcie + dwa małe obok siebie */}
+        {/* Mobile: its1 + its3 (its2 jest już w sekcji O nas, pomijamy) */}
         <div className="lg:hidden flex flex-col gap-3">
           <div className="rounded-2xl overflow-hidden aspect-video">
             <img src={img1} alt="Stół do ping-ponga z latającymi piłeczkami" className="w-full h-full object-cover" />
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <img src={img2} alt="Szatnia i recepcja" className="w-full h-full object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <img src={img3} alt="Profesjonalny sprzęt Tibhar" className="w-full h-full object-cover" />
-            </div>
+          <div className="rounded-2xl overflow-hidden aspect-video">
+            <img src={img3} alt="Profesjonalny sprzęt Tibhar" className="w-full h-full object-cover" />
           </div>
         </div>
 
