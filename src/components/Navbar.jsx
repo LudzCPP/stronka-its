@@ -3,6 +3,7 @@ import logo from '../assets/its_logo-removebg-preview.png'
 
 const LINKS = [
   ['#about', 'O nas'],
+  ['#galeria', 'Galeria'],
   ['#services', 'Oferta'],
   ['#abonamenty', 'Abonamenty'],
   ['#testimonials', 'Opinie'],
