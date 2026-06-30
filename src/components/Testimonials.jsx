@@ -1,3 +1,5 @@
+import AnimateIn from './AnimateIn'
+
 const TESTIMONIALS = [
   {
     name: "Adam W.",
@@ -18,35 +20,39 @@ export default function Testimonials() {
     <section id="testimonials" className="py-24 bg-[#0f1423]">
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-px w-8 bg-[#0075C4]" />
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">Opinie</span>
-        </div>
-
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Co mówią gracze
-          </h2>
-          <div className="inline-flex items-center gap-2 text-sm text-gray-400">
-            <GoogleIcon />
-            <span>Google Maps · 4,9 / 5</span>
+        <AnimateIn>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-[#0075C4]" />
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">Opinie</span>
           </div>
-        </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              Co mówią gracze
+            </h2>
+            <div className="inline-flex items-center gap-2 text-sm text-gray-400">
+              <GoogleIcon />
+              <span>Google Maps · 4,9 / 5</span>
+            </div>
+          </div>
+        </AnimateIn>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t) => (
-            <div key={t.name} className="flex flex-col p-7 bg-[#080b14] rounded-2xl border border-white/8">
-              <Stars />
-              <blockquote className="mt-4 flex-1 text-gray-200 leading-relaxed text-base">
-                &ldquo;{t.body}&rdquo;
-              </blockquote>
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#0075C4] flex items-center justify-center text-white text-xs font-bold shrink-0">
-                  {t.name.charAt(0)}
+          {TESTIMONIALS.map((t, i) => (
+            <AnimateIn key={t.name} delay={i * 100}>
+              <div className="flex flex-col p-7 bg-[#080b14] rounded-2xl border border-white/8 h-full">
+                <Stars />
+                <blockquote className="mt-4 flex-1 text-gray-200 leading-relaxed text-base">
+                  &ldquo;{t.body}&rdquo;
+                </blockquote>
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#0075C4] flex items-center justify-center text-white text-xs font-bold shrink-0">
+                    {t.name.charAt(0)}
+                  </div>
+                  <span className="font-semibold text-white text-sm">{t.name}</span>
                 </div>
-                <span className="font-semibold text-white text-sm">{t.name}</span>
               </div>
-            </div>
+            </AnimateIn>
           ))}
         </div>
 

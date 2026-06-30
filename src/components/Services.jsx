@@ -1,3 +1,5 @@
+import AnimateIn from './AnimateIn'
+
 const SERVICES = [
   {
     title: "Rezerwacja stołu online",
@@ -27,19 +29,21 @@ export default function Services() {
     <section id="services" className="py-24 bg-[#080b14]">
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-px w-8 bg-[#0075C4]" />
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">Oferta</span>
-        </div>
+        <AnimateIn>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-[#0075C4]" />
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">Oferta</span>
+          </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 gap-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-            Co oferujemy
-          </h2>
-          <p className="text-gray-300 max-w-sm lg:text-right text-base">
-            Rezerwacje, abonamenty, treningi i turnieje — wszystko w jednym miejscu.
-          </p>
-        </div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 gap-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+              Co oferujemy
+            </h2>
+            <p className="text-gray-300 max-w-sm lg:text-right text-base">
+              Rezerwacje, abonamenty, treningi i turnieje — wszystko w jednym miejscu.
+            </p>
+          </div>
+        </AnimateIn>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SERVICES.map((service, i) => {
@@ -55,41 +59,42 @@ export default function Services() {
                 )}
               </>
             )
-            return service.href ? (
-              <a
-                key={service.title}
-                href={service.href}
-                className="bg-[#0f1423] border border-white/8 rounded-xl p-8 hover:border-[#0075C4]/50 hover:bg-[#161d33] transition-all duration-200 group block"
-              >
-                {inner}
-              </a>
-            ) : (
-              <div
-                key={service.title}
-                className="bg-[#0f1423] border border-white/8 rounded-xl p-8 hover:border-[#0075C4]/50 hover:bg-[#161d33] transition-all duration-200 group"
-              >
-                {inner}
-              </div>
+            return (
+              <AnimateIn key={service.title} delay={i * 80}>
+                {service.href ? (
+                  <a
+                    href={service.href}
+                    className="bg-[#0f1423] border border-white/8 rounded-xl p-8 hover:border-[#0075C4]/50 hover:bg-[#161d33] transition-all duration-200 group block h-full"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div className="bg-[#0f1423] border border-white/8 rounded-xl p-8 hover:border-[#0075C4]/50 hover:bg-[#161d33] transition-all duration-200 group h-full">
+                    {inner}
+                  </div>
+                )}
+              </AnimateIn>
             )
           })}
 
-          {/* CTA — 6. komórka */}
-          <div className="bg-[#0f1423] border border-white/8 rounded-xl p-8 flex items-center justify-center">
-            <a
-              href="https://its.nakiedy.pl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 text-center group"
-            >
-              <div className="w-12 h-12 rounded-full bg-[#0075C4] flex items-center justify-center group-hover:bg-blue-700 transition-colors">
-                <CalendarIcon />
-              </div>
-              <span className="text-white font-semibold text-sm leading-tight">
-                Zarezerwuj stół online
-              </span>
-              <span className="text-[#0075C4] font-bold">its.nakiedy.pl</span>
-            </a>
-          </div>
+          <AnimateIn delay={SERVICES.length * 80}>
+            <div className="bg-[#0f1423] border border-white/8 rounded-xl p-8 flex items-center justify-center h-full">
+              <a
+                href="https://its.nakiedy.pl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 text-center group"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#0075C4] flex items-center justify-center group-hover:bg-blue-700 transition-colors">
+                  <CalendarIcon />
+                </div>
+                <span className="text-white font-semibold text-sm leading-tight">
+                  Zarezerwuj stół online
+                </span>
+                <span className="text-[#0075C4] font-bold">its.nakiedy.pl</span>
+              </a>
+            </div>
+          </AnimateIn>
         </div>
 
       </div>

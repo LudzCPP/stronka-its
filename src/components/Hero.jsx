@@ -15,7 +15,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#080b14] via-[#080b14]/40 to-transparent" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 pt-32">
-        <div className="mb-10 flex items-center gap-4 sm:gap-6">
+        <div
+          className="mb-10 flex items-center gap-4 sm:gap-6"
+          style={{ animation: 'fadeUp 0.6s ease-out 0.1s both' }}
+        >
           <img
             src={logo}
             alt="Instytut Tenisa Stołowego"
@@ -28,17 +31,26 @@ export default function Hero() {
           </div>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] max-w-3xl mb-6">
+        <h1
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] max-w-3xl mb-6"
+          style={{ animation: 'fadeUp 0.6s ease-out 0.25s both' }}
+        >
           Sala ping-ponga<br />
           dostępna 7&nbsp;dni w&nbsp;tygodniu,<br />
           od&nbsp;6:00 do&nbsp;24:00.
         </h1>
 
-        <p className="text-lg sm:text-xl text-gray-200 max-w-xl mb-10 leading-relaxed">
+        <p
+          className="text-lg sm:text-xl text-gray-200 max-w-xl mb-10 leading-relaxed"
+          style={{ animation: 'fadeUp 0.6s ease-out 0.4s both' }}
+        >
           Rezerwacje stołów, abonamenty miesięczne i treningi indywidualne w jednym miejscu.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div
+          className="flex flex-col sm:flex-row gap-4"
+          style={{ animation: 'fadeUp 0.6s ease-out 0.55s both' }}
+        >
           <a
             href="https://its.nakiedy.pl"
             target="_blank"
@@ -56,7 +68,10 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-300">
+        <div
+          className="mt-14 flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-300"
+          style={{ animation: 'fadeUp 0.6s ease-out 0.7s both' }}
+        >
           <span className="flex items-center gap-2"><CheckIcon />Rezerwacje online — its.nakiedy.pl</span>
           <span className="flex items-center gap-2"><CheckIcon />Ocena 4,9/5 w Google</span>
           <span className="flex items-center gap-2"><CheckIcon />Czynne codziennie 6:00–24:00</span>

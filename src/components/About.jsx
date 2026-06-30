@@ -1,4 +1,5 @@
 import photo from '../assets/its2.jpg'
+import AnimateIn from './AnimateIn'
 
 const STATS = [
   { value: "4,9/5", label: "Średnia ocen Google" },
@@ -12,7 +13,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          <div>
+          <AnimateIn>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-[#0075C4]" />
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">O nas</span>
@@ -55,16 +56,16 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
+          </AnimateIn>
 
-          <div className="relative">
+          <AnimateIn delay={150} className="relative">
             <div className="absolute -inset-3 rounded-3xl bg-[#0075C4]/20 blur-xl" />
             <img
               src={photo}
               alt="Recepcja i szatnia Instytutu Tenisa Stołowego"
               className="relative rounded-2xl object-cover w-full aspect-[4/3] shadow-2xl shadow-black/60"
             />
-          </div>
+          </AnimateIn>
 
         </div>
       </div>

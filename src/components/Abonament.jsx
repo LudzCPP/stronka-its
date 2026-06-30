@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AnimateIn from './AnimateIn'
 
 const PLANS = [
   {
@@ -54,10 +55,10 @@ export default function Abonament() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto lg:mx-0">
-          {PLANS.map(plan => (
+          {PLANS.map((plan, i) => (
+            <AnimateIn key={plan.id} delay={i * 120}>
             <div
-              key={plan.id}
-              className={`relative rounded-2xl p-8 border flex flex-col transition-all duration-200 ${
+              className={`relative rounded-2xl p-8 border flex flex-col transition-all duration-200 h-full ${
                 plan.highlighted
                   ? 'bg-[#080b14] border-[#0075C4]/50 shadow-[0_0_40px_rgba(0,117,196,0.12)]'
                   : 'bg-[#080b14] border-white/8 hover:border-white/20'
@@ -98,6 +99,7 @@ export default function Abonament() {
                 Kup abonament
               </button>
             </div>
+            </AnimateIn>
           ))}
         </div>
 
