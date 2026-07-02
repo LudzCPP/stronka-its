@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from '../assets/its_logo-removebg-preview.png'
 
 const LINKS = [
@@ -13,6 +13,24 @@ const LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
+
+  useEffect(() => {
+    const ids = LINKS.map(([href]) => href.slice(1))
+    const els = ids.map(id => document.getElementById(id)).filter(Boolean)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive('#' + entry.target.id)
+        })
+      },
+      { rootMargin: '-64px 0px -50% 0px', threshold: 0 }
+    )
+
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-[#080b14]/90 backdrop-blur-md border-b border-white/5">
@@ -26,9 +44,17 @@ export default function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {LINKS.map(([href, label]) => (
-            <a key={href} href={href} className="hover:text-white transition-colors duration-150">{label}</a>
+            <a
+              key={href}
+              href={href}
+              className={`transition-colors duration-150 ${
+                active === href ? 'text-[#0075C4]' : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              {label}
+            </a>
           ))}
         </nav>
 
@@ -63,7 +89,11 @@ export default function Navbar() {
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="py-3 px-4 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+              className={`py-3 px-4 text-base font-medium rounded-lg transition-colors ${
+                active === href
+                  ? 'text-[#0075C4] bg-[#0075C4]/8'
+                  : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
             >
               {label}
             </a>
