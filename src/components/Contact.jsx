@@ -44,10 +44,13 @@ export default function Contact() {
         </a>
         </AnimateIn>
 
+        <AnimateIn delay={200}>
+          <p className="text-xs font-bold tracking-[0.15em] uppercase text-gray-400 mb-4">Kontakt z obsługą sali</p>
+        </AnimateIn>
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-          <AnimateIn delay={200}>
-            <p className="text-xs font-bold tracking-[0.15em] uppercase text-gray-400 mb-4">Kontakt z obsługą sali</p>
+          <AnimateIn delay={250}>
             <div className="space-y-3">
               <ContactItem icon={<PhoneIcon />} label="Telefon" value="+48 533 644 535" href="tel:+48533644535" />
               <ContactItem icon={<EmailIcon />} label="E-mail" value="tenisstolowy.lodz@gmail.com" href="mailto:tenisstolowy.lodz@gmail.com" />
@@ -67,11 +70,10 @@ export default function Contact() {
             </div>
           </AnimateIn>
 
-          <AnimateIn delay={300} className="rounded-2xl overflow-hidden border border-white/8" style={{ minHeight: '420px' }}>
+          <AnimateIn delay={300} className="rounded-2xl overflow-hidden border border-white/8 h-[380px]">
             <iframe
               src={MAPS_SRC}
               className="w-full h-full border-0"
-              style={{ minHeight: '420px' }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
