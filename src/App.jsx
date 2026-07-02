@@ -7,6 +7,7 @@ import Rezerwacje from './components/Rezerwacje'
 import Abonament from './components/Abonament'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
       <Rezerwacje />
       <Abonament />
       <Testimonials />
+      <FAQ />
       <Contact />
       <Footer />
     </main>
