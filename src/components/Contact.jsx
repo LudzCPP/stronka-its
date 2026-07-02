@@ -70,7 +70,7 @@ export default function Contact() {
             </div>
           </AnimateIn>
 
-          <AnimateIn delay={300} className="rounded-2xl overflow-hidden border border-white/8 h-[430px]">
+          <AnimateIn delay={300} className="rounded-2xl overflow-hidden border border-white/8 h-[450px]">
             <iframe
               src={MAPS_SRC}
               className="w-full h-full border-0"
