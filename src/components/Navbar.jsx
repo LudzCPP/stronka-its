@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
         <a href="#" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Instytut Tenisa Stołowego" className="h-10 w-auto mix-blend-multiply" />
+          <img src={logo} alt="Instytut Tenisa Stołowego" className="h-10 w-auto" />
           <span className="hidden sm:block text-white font-bold text-sm leading-tight">
             Instytut<br />
             <span className="text-[#0075C4]">Tenisa Stołowego</span>
