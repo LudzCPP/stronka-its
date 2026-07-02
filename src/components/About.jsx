@@ -27,7 +27,7 @@ export default function About() {
               <p>
                 Instytut Tenisa Stołowego to profesjonalny obiekt w sercu Łodzi, stworzony
                 z myślą o graczach na każdym poziomie zaawansowania. Sala dostępna jest
-                7 dni w tygodniu od 6:00 do 24:00 — bo wiemy, że pasja nie zna stałych godzin.
+                7 dni w tygodniu od 6:00 do 24:00 - bo wiemy, że pasja nie zna stałych godzin.
               </p>
               <p>
                 Oferujemy rezerwacje stołów, abonamenty miesięczne, treningi z trenerem

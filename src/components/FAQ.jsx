@@ -3,10 +3,10 @@ import AnimateIn from './AnimateIn'
 const FAQS = [
   {
     q: "Czy potrzebuję rezerwacji?",
-    a: "Tak, wszystkie wejścia rezerwuje się online przez its.nakiedy.pl — szybko, bez dzwonienia.",
+    a: "Tak, wszystkie wejścia rezerwuje się online przez its.nakiedy.pl - szybko, bez dzwonienia.",
   },
   {
-    q: "Nie mam z kim grać — co wtedy?",
+    q: "Nie mam z kim grać - co wtedy?",
     a: "Posiadacze abonamentu mogą zarezerwować stół z robotem treningowym i ćwiczyć samodzielnie.",
   },
   {
@@ -15,15 +15,15 @@ const FAQS = [
   },
   {
     q: "Czy jest parking?",
-    a: "Tak — bezpłatny parking bezpośrednio przy sali.",
+    a: "Tak - bezpłatny parking bezpośrednio przy sali.",
   },
   {
     q: "Dla kogo jest sala?",
-    a: "Dla każdego — od zupełnych początkujących po zaawansowanych zawodników. Poziom nie ma znaczenia.",
+    a: "Dla każdego - od zupełnych początkujących po zaawansowanych zawodników. Poziom nie ma znaczenia.",
   },
   {
     q: "Jak wygląda płatność?",
-    a: "Wyłącznie online — kartą, BLIKiem lub przelewem przy rezerwacji lub zakupie abonamentu.",
+    a: "Wyłącznie online - kartą, BLIKiem lub przelewem przy rezerwacji lub zakupie abonamentu.",
   },
 ]
 
@@ -44,8 +44,8 @@ export default function FAQ() {
 
         <div className="grid sm:grid-cols-2 gap-4">
           {FAQS.map((item, i) => (
-            <AnimateIn key={i} delay={i * 60}>
-              <div className="p-6 rounded-xl bg-[#0f1423] border border-white/8">
+            <AnimateIn key={i} delay={i * 60} className="h-full">
+              <div className="p-6 rounded-xl bg-[#0f1423] border border-white/8 h-full">
                 <p className="font-semibold text-white mb-2">{item.q}</p>
                 <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
               </div>

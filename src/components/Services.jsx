@@ -3,24 +3,24 @@ import AnimateIn from './AnimateIn'
 const SERVICES = [
   {
     title: "Rezerwacja stołu online",
-    description: "Wybierz termin i zarezerwuj stół na its.nakiedy.pl — szybko, bez dzwonienia, dla 2 lub 4 osób od 32 zł / 90 min.",
+    description: "Wybierz termin i zarezerwuj stół na its.nakiedy.pl - szybko, bez dzwonienia, dla 2 lub 4 osób od 32 zł / 90 min.",
   },
   {
     title: "Abonamenty miesięczne",
-    description: "Nieograniczony dostęp do sali przez cały miesiąc — abonament śniadaniowy od 85 zł lub max za 125 zł.",
+    description: "Nieograniczony dostęp do sali przez cały miesiąc - abonament śniadaniowy od 85 zł lub max za 125 zł.",
     href: "#abonamenty",
   },
   {
     title: "Treningi indywidualne",
-    description: "Praca 1-na-1 z trenerem przez 60 lub 90 minut — skuteczna droga do poprawy techniki i wyników.",
+    description: "Praca 1-na-1 z trenerem przez 60 lub 90 minut - skuteczna droga do poprawy techniki i wyników.",
   },
   {
     title: "Turnieje i miniturnieje",
-    description: "Regularne turnieje ITS dla każdego poziomu zaawansowania — rywalizacja i emocje od 11 zł.",
+    description: "Regularne turnieje ITS dla każdego poziomu zaawansowania - rywalizacja i emocje od 11 zł.",
   },
   {
     title: "Karty sportowe",
-    description: "Rezerwacja dla dwóch posiadaczy karty sportowej bezpłatnie — wejdź i graj.",
+    description: "Rezerwacja dla dwóch posiadaczy karty sportowej bezpłatnie - wejdź i graj.",
     cards: true,
   },
 ]
@@ -41,7 +41,7 @@ export default function Services() {
               Co oferujemy
             </h2>
             <p className="text-gray-300 max-w-sm lg:text-right text-base">
-              Rezerwacje, abonamenty, treningi i turnieje — wszystko w jednym miejscu.
+              Rezerwacje, abonamenty, treningi i turnieje - wszystko w jednym miejscu.
             </p>
           </div>
         </AnimateIn>
@@ -63,7 +63,7 @@ export default function Services() {
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-400">
                       <span className="w-1.5 h-1.5 rounded-full bg-gray-600" />
-                      FitProfit — wkrótce
+                      FitProfit - wkrótce
                     </span>
                   </div>
                 )}

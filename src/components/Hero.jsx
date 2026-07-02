@@ -10,7 +10,7 @@ export default function Hero() {
         fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Silna ciemna warstwa bazowa — gwarantuje czytelność tekstu */}
+      {/* Silna ciemna warstwa bazowa - gwarantuje czytelność tekstu */}
       <div className="absolute inset-0 bg-[#080b14]/70" />
       {/* Dodatkowy gradient od dołu dla strefy tekstu */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#080b14] via-[#080b14]/40 to-transparent" />
@@ -73,7 +73,7 @@ export default function Hero() {
           className="mt-14 flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-300"
           style={{ animation: 'fadeUp 0.6s ease-out 0.7s both' }}
         >
-          <span className="flex items-center gap-2"><CheckIcon />Rezerwacje online — its.nakiedy.pl</span>
+          <span className="flex items-center gap-2"><CheckIcon />Rezerwacje online - its.nakiedy.pl</span>
           <span className="flex items-center gap-2"><CheckIcon />Ocena 4,9/5 w Google</span>
           <span className="flex items-center gap-2"><CheckIcon />Czynne codziennie 6:00–24:00</span>
         </div>

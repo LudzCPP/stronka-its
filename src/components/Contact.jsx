@@ -35,7 +35,7 @@ export default function Contact() {
             </div>
             <div>
               <p className="text-white font-bold text-lg leading-tight">Zarezerwuj stół online</p>
-              <p className="text-blue-100 text-sm mt-0.5">its.nakiedy.pl — szybko, bez dzwonienia</p>
+              <p className="text-blue-100 text-sm mt-0.5">its.nakiedy.pl - szybko, bez dzwonienia</p>
             </div>
           </div>
           <svg className="w-5 h-5 text-white/70 group-hover:translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ export default function Contact() {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Instytut Tenisa Stołowego — mapa"
+              title="Instytut Tenisa Stołowego - mapa"
             />
           </AnimateIn>
 

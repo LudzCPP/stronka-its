@@ -50,7 +50,7 @@ export default function Abonament() {
             Nieograniczony dostęp<br />do sali przez cały miesiąc
           </h2>
           <p className="text-gray-300 max-w-sm lg:text-right text-base">
-            Kup online — płatność kartą, BLIK lub przelewem.
+            Kup online - płatność kartą, BLIK lub przelewem.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function Abonament() {
         </div>
 
         <p className="mt-8 text-xs text-gray-400 max-w-lg">
-          Po zakupie otrzymasz e-mail z potwierdzeniem. Numer telefonu podany przy zakupie zostanie aktywowany w systemie dostępu do sali — możesz wejść dzwoniąc na dedykowany numer przy drzwiach.
+          Po zakupie otrzymasz e-mail z potwierdzeniem. Numer telefonu podany przy zakupie zostanie aktywowany w systemie dostępu do sali - możesz wejść dzwoniąc na dedykowany numer przy drzwiach.
         </p>
 
       </div>
@@ -124,7 +124,7 @@ function CheckoutModal({ plan, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    // TODO: Replace with Przelewy24/PayU API — create transaction, redirect to payment URL
+    // TODO: Replace with Przelewy24/PayU API - create transaction, redirect to payment URL
     await new Promise(r => setTimeout(r, 1500))
     setLoading(false)
     setDone(true)
@@ -214,7 +214,7 @@ function CheckoutModal({ plan, onClose }) {
               {loading ? (
                 <><SpinnerIcon />Przetwarzanie...</>
               ) : (
-                <><LockIcon />Przejdź do płatności — {plan.price} zł</>
+                <><LockIcon />Przejdź do płatności - {plan.price} zł</>
               )}
             </button>
 
