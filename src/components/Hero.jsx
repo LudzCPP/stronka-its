@@ -3,7 +3,7 @@ import logo from '../assets/its_logo-removebg-preview.png'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-end overflow-hidden">
       <img
         src={heroBg}
         alt="Sala Instytutu Tenisa Stołowego w Łodzi"
@@ -75,7 +75,22 @@ export default function Hero() {
         >
           <span className="flex items-center gap-2"><CheckIcon />Rezerwacje online - its.nakiedy.pl</span>
           <span className="flex items-center gap-2"><CheckIcon />Ocena 4,9/5 w Google</span>
-          <span className="flex items-center gap-2"><CheckIcon />Czynne codziennie 6:00–24:00</span>
+          <span className="flex items-center gap-2"><CheckIcon />Czynne codziennie 6:00-24:00</span>
+        </div>
+
+        <div
+          className="mt-4 flex items-center gap-3 flex-wrap"
+          style={{ animation: 'fadeUp 0.6s ease-out 0.85s both' }}
+        >
+          <span className="text-xs text-gray-500 uppercase tracking-wider">Akceptujemy:</span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+            Medicover Sport
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-600" />
+            FitProfit - wkrotce
+          </span>
         </div>
       </div>
     </section>
