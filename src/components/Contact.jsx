@@ -52,6 +52,7 @@ export default function Contact() {
             <ContactItem icon={<EmailIcon />} label="E-mail" value="tenisstolowy.lodz@gmail.com" href="mailto:tenisstolowy.lodz@gmail.com" />
             <ContactItem icon={<PinIcon />} label="Adres" value="ul. Śnieżna 5, 92-103 Łódź" />
             <ContactItem icon={<ClockIcon />} label="Godziny otwarcia" value="Codziennie 6:00–24:00" sub="Obsługa sali: 9:00–21:00" />
+            <ContactItem icon={<FacebookIcon />} label="Facebook" value="Instytut Tenisa Stołowego" href="https://www.facebook.com/tenisstolowyLogocentrum" />
           </AnimateIn>
 
           <AnimateIn delay={300} className="rounded-2xl overflow-hidden h-96 border border-white/8">
@@ -126,6 +127,14 @@ function ClockIcon() {
   return (
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  )
+}
+
+function FacebookIcon() {
+  return (
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
     </svg>
   )
 }
