@@ -19,8 +19,9 @@ const SERVICES = [
     description: "Regularne turnieje ITS dla każdego poziomu zaawansowania — rywalizacja i emocje od 11 zł.",
   },
   {
-    title: "Medicover Sport",
-    description: "Akceptujemy karty Medicover Sport — rezerwacja dla dwóch posiadaczy karty bezpłatnie.",
+    title: "Karty sportowe",
+    description: "Akceptujemy karty Medicover Sport — rezerwacja dla dwóch posiadaczy karty bezpłatnie. Wkrótce również FitProfit.",
+    badge: "FitProfit wkrótce",
   },
 ]
 
@@ -49,9 +50,16 @@ export default function Services() {
           {SERVICES.map((service, i) => {
             const inner = (
               <>
-                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#0075C4]/50 text-[#0075C4] text-xs font-bold mb-6 group-hover:border-[#0075C4] group-hover:bg-[#0075C4]/10 transition-colors">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#0075C4]/50 text-[#0075C4] text-xs font-bold group-hover:border-[#0075C4] group-hover:bg-[#0075C4]/10 transition-colors">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {service.badge && (
+                    <span className="text-xs font-semibold px-2 py-1 rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20">
+                      {service.badge}
+                    </span>
+                  )}
+                </div>
                 <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
                 <p className="text-gray-300 text-base leading-relaxed">{service.description}</p>
                 {service.href && (
