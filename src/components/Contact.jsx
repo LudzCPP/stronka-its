@@ -44,15 +44,17 @@ export default function Contact() {
         </a>
         </AnimateIn>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-end">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-          <AnimateIn delay={200} className="space-y-3">
+          <AnimateIn delay={200}>
             <p className="text-xs font-bold tracking-[0.15em] uppercase text-gray-400 mb-4">Kontakt z obsługą sali</p>
-            <ContactItem icon={<PhoneIcon />} label="Telefon" value="+48 533 644 535" href="tel:+48533644535" />
-            <ContactItem icon={<EmailIcon />} label="E-mail" value="tenisstolowy.lodz@gmail.com" href="mailto:tenisstolowy.lodz@gmail.com" />
-            <ContactItem icon={<PinIcon />} label="Adres" value="ul. Śnieżna 5, 92-103 Łódź" />
-            <ContactItem icon={<ClockIcon />} label="Godziny otwarcia" value="Codziennie 6:00–24:00" sub="Obsługa sali: 9:00–21:00" />
-            <div className="pt-2">
+            <div className="space-y-3">
+              <ContactItem icon={<PhoneIcon />} label="Telefon" value="+48 533 644 535" href="tel:+48533644535" />
+              <ContactItem icon={<EmailIcon />} label="E-mail" value="tenisstolowy.lodz@gmail.com" href="mailto:tenisstolowy.lodz@gmail.com" />
+              <ContactItem icon={<PinIcon />} label="Adres" value="ul. Śnieżna 5, 92-103 Łódź" />
+              <ContactItem icon={<ClockIcon />} label="Godziny otwarcia" value="Codziennie 6:00-24:00" sub="Obsługa sali: 9:00-21:00" />
+            </div>
+            <div className="mt-4">
               <a
                 href="https://www.facebook.com/tenisstolowyLogocentrum"
                 target="_blank"
@@ -65,10 +67,11 @@ export default function Contact() {
             </div>
           </AnimateIn>
 
-          <AnimateIn delay={300} className="rounded-2xl overflow-hidden h-96 border border-white/8">
+          <AnimateIn delay={300} className="rounded-2xl overflow-hidden border border-white/8" style={{ minHeight: '420px' }}>
             <iframe
               src={MAPS_SRC}
               className="w-full h-full border-0"
+              style={{ minHeight: '420px' }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -97,7 +100,7 @@ function ContactItem({ icon, label, value, sub, href }) {
       </div>
     </div>
   )
-  return href ? <a href={href}>{inner}</a> : inner
+  return href ? <a href={href} className="block">{inner}</a> : inner
 }
 
 function CalendarIcon({ className = "w-5 h-5" }) {
