@@ -52,7 +52,17 @@ export default function Contact() {
             <ContactItem icon={<EmailIcon />} label="E-mail" value="tenisstolowy.lodz@gmail.com" href="mailto:tenisstolowy.lodz@gmail.com" />
             <ContactItem icon={<PinIcon />} label="Adres" value="ul. Śnieżna 5, 92-103 Łódź" />
             <ContactItem icon={<ClockIcon />} label="Godziny otwarcia" value="Codziennie 6:00–24:00" sub="Obsługa sali: 9:00–21:00" />
-            <ContactItem icon={<FacebookIcon />} label="Facebook" value="Instytut Tenisa Stołowego" href="https://www.facebook.com/tenisstolowyLogocentrum" />
+            <div className="pt-2">
+              <a
+                href="https://www.facebook.com/tenisstolowyLogocentrum"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-gray-400 hover:text-white hover:border-white/25 text-sm transition-all"
+              >
+                <FacebookIcon />
+                Obserwuj nas na Facebooku
+              </a>
+            </div>
           </AnimateIn>
 
           <AnimateIn delay={300} className="rounded-2xl overflow-hidden h-96 border border-white/8">
