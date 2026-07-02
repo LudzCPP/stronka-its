@@ -7,6 +7,7 @@ export default function Hero() {
       <img
         src={heroBg}
         alt="Sala Instytutu Tenisa Stołowego w Łodzi"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Silna ciemna warstwa bazowa — gwarantuje czytelność tekstu */}

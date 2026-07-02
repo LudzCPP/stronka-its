@@ -47,7 +47,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12 items-end">
 
           <AnimateIn delay={200} className="space-y-3">
-            <p className="text-xs font-bold tracking-[0.15em] uppercase text-gray-500 mb-4">Kontakt z obsługą sali</p>
+            <p className="text-xs font-bold tracking-[0.15em] uppercase text-gray-400 mb-4">Kontakt z obsługą sali</p>
             <ContactItem icon={<PhoneIcon />} label="Telefon" value="+48 533 644 535" href="tel:+48533644535" />
             <ContactItem icon={<EmailIcon />} label="E-mail" value="tenisstolowy.lodz@gmail.com" href="mailto:tenisstolowy.lodz@gmail.com" />
             <ContactItem icon={<PinIcon />} label="Adres" value="ul. Śnieżna 5, 92-103 Łódź" />

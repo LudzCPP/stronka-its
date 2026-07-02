@@ -103,7 +103,7 @@ export default function Abonament() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs text-gray-600 max-w-lg">
+        <p className="mt-8 text-xs text-gray-400 max-w-lg">
           Po zakupie otrzymasz e-mail z potwierdzeniem. Numer telefonu podany przy zakupie zostanie aktywowany w systemie dostępu do sali — możesz wejść dzwoniąc na dedykowany numer przy drzwiach.
         </p>
 
