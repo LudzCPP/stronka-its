@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stronkaits.vercel.app/sitemap.xml
+Sitemap: https://gramnaits.pl/sitemap.xml
