@@ -20,8 +20,8 @@ const SERVICES = [
   },
   {
     title: "Karty sportowe",
-    description: "Akceptujemy karty Medicover Sport — rezerwacja dla dwóch posiadaczy karty bezpłatnie. Wkrótce również FitProfit.",
-    badge: "FitProfit wkrótce",
+    description: "Rezerwacja dla dwóch posiadaczy karty sportowej bezpłatnie — wejdź i graj.",
+    cards: true,
   },
 ]
 
@@ -50,18 +50,23 @@ export default function Services() {
           {SERVICES.map((service, i) => {
             const inner = (
               <>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#0075C4]/50 text-[#0075C4] text-xs font-bold group-hover:border-[#0075C4] group-hover:bg-[#0075C4]/10 transition-colors">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  {service.badge && (
-                    <span className="text-xs font-semibold px-2 py-1 rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20">
-                      {service.badge}
-                    </span>
-                  )}
-                </div>
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#0075C4]/50 text-[#0075C4] text-xs font-bold mb-6 group-hover:border-[#0075C4] group-hover:bg-[#0075C4]/10 transition-colors">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
                 <p className="text-gray-300 text-base leading-relaxed">{service.description}</p>
+                {service.cards && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                      Medicover Sport
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-600" />
+                      FitProfit — wkrótce
+                    </span>
+                  </div>
+                )}
                 {service.href && (
                   <span className="inline-block mt-4 text-xs font-semibold text-[#0075C4] group-hover:underline">Kup abonament →</span>
                 )}
