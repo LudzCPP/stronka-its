@@ -23,7 +23,7 @@ export default function Hero() {
           <img
             src={logo}
             alt="Instytut Tenisa Stołowego"
-            className="h-20 sm:h-28 w-auto drop-shadow-2xl"
+            className="h-20 sm:h-28 w-auto drop-shadow-2xl mix-blend-multiply"
             style={{ filter: 'drop-shadow(0 0 24px rgba(0,117,196,0.45))' }}
           />
           <div className="border-l border-white/15 pl-4 sm:pl-6">

@@ -17,7 +17,7 @@ export default function Footer() {
 
         {/* Logo + adres */}
         <div>
-          <img src={logo} alt="Instytut Tenisa Stołowego" className="h-14 w-auto mb-4 opacity-90" />
+          <img src={logo} alt="Instytut Tenisa Stołowego" className="h-14 w-auto mb-4 opacity-90 mix-blend-multiply" />
           <p className="text-gray-400 text-sm leading-relaxed">
             Profesjonalna sala tenisa stołowego<br />w sercu Łodzi.
           </p>
