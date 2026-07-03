@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import AnimateIn from './AnimateIn'
 
 const MAPS_SRC = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.710796839028!2d19.50030557694348!3d51.79317168978637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bcb1a4c553e47%3A0xf46f55e5d3d3fe7e!2sInstytut%20Tenisa%20Sto%C5%82owego!5e0!3m2!1spl!2spl!4v1782810428758!5m2!1spl!2spl"
@@ -57,6 +58,10 @@ export default function Contact() {
               <ContactItem icon={<PinIcon />} label="Adres" value="ul. Śnieżna 5, 92-103 Łódź" />
               <ContactItem icon={<ClockIcon />} label="Godziny otwarcia" value="Codziennie 6:00-24:00" sub="Obsługa sali: 9:00-21:00" />
             </div>
+
+            <p className="text-xs text-gray-400 mt-6 mb-3">Lub napisz do nas bezpośrednio:</p>
+            <ContactForm />
+
             <div className="mt-4">
               <a
                 href="https://www.facebook.com/tenisstolowyLogocentrum"
@@ -84,6 +89,82 @@ export default function Contact() {
         </div>
       </div>
     </section>
+  )
+}
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: '', contact: '', message: '' })
+  const [status, setStatus] = useState('idle')
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('loading')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: 'Nowa wiadomość ze strony ITS',
+          from_name: 'Formularz kontaktowy - gramnaits.pl',
+          name: form.name,
+          contact: form.contact,
+          message: form.message,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setStatus('success')
+        setForm({ name: '', contact: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="p-5 rounded-xl border border-[#0075C4]/30 bg-[#0f1423] text-center">
+        <p className="text-white font-semibold">Dziękujemy! Wiadomość została wysłana.</p>
+        <p className="text-gray-400 text-sm mt-1">Odezwiemy się najszybciej jak to możliwe.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="p-5 rounded-xl border border-white/8 bg-[#0f1423] space-y-3">
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+      <div className="grid sm:grid-cols-2 gap-3">
+        <input
+          name="name" required value={form.name} onChange={handleChange}
+          placeholder="Imię"
+          className="w-full min-h-[48px] px-4 rounded-lg bg-[#080b14] border border-white/10 text-white text-base placeholder:text-gray-500 focus:outline-none focus:border-[#0075C4]/50 transition-colors"
+        />
+        <input
+          name="contact" required value={form.contact} onChange={handleChange}
+          placeholder="Telefon lub e-mail"
+          className="w-full min-h-[48px] px-4 rounded-lg bg-[#080b14] border border-white/10 text-white text-base placeholder:text-gray-500 focus:outline-none focus:border-[#0075C4]/50 transition-colors"
+        />
+      </div>
+      <textarea
+        name="message" required rows={3} value={form.message} onChange={handleChange}
+        placeholder="Twoja wiadomość"
+        className="w-full px-4 py-3 rounded-lg bg-[#080b14] border border-white/10 text-white text-base placeholder:text-gray-500 focus:outline-none focus:border-[#0075C4]/50 transition-colors resize-none"
+      />
+      <button
+        type="submit" disabled={status === 'loading'}
+        className="w-full min-h-[48px] rounded-lg bg-[#0075C4] hover:bg-blue-700 text-white font-semibold transition-colors active:scale-95 disabled:opacity-60"
+      >
+        {status === 'loading' ? 'Wysyłanie...' : 'Wyślij wiadomość'}
+      </button>
+      {status === 'error' && (
+        <p className="text-sm text-red-400">Coś poszło nie tak. Spróbuj zadzwonić lub napisz e-mail bezpośrednio.</p>
+      )}
+    </form>
   )
 }
 
