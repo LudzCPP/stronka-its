@@ -70,6 +70,28 @@ function doPost(e) {
           ].join('\n'),
         })
 
+        MailApp.sendEmail({
+          to: data[i][1],
+          name: 'Instytut Tenisa Stołowego Łódź',
+          subject: `Potwierdzenie zakupu: ${data[i][3]}`,
+          body: [
+            `Cześć ${data[i][0]},`,
+            '',
+            'Dziękujemy za zakup abonamentu w Instytucie Tenisa Stołowego w Łodzi!',
+            '',
+            'Szczegóły zakupu:',
+            `Plan: ${data[i][3]}`,
+            `Cena: ${data[i][4]} zł`,
+            `Ważny do: ${expiryDate.toLocaleDateString('pl-PL')}`,
+            `ID transakcji: ${payload.orderId}`,
+            '',
+            'Do zobaczenia na sali!',
+            'ul. Śnieżna 5, Łódź',
+            '',
+            'gramnaits.pl',
+          ].join('\n'),
+        })
+
         return jsonResponse({ ok: true })
       }
     }
