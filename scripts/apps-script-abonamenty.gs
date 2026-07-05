@@ -86,7 +86,7 @@ function doPost(e) {
             `ID transakcji: ${payload.orderId}`,
             '',
             'Do zobaczenia na sali!',
-            'ul. Śnieżna 5, Łódź',
+            'ul. Śnieżna 5 (Wejście A), Łódź',
             '',
             'gramnaits.pl',
           ].join('\n'),
