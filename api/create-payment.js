@@ -27,6 +27,14 @@ export default async function handler(req, res) {
   const sessionId = crypto.randomUUID()
   const amount = plan.price * 100
 
+  // Deploymenty Preview maja wlaczona ochrone logowaniem Vercel - P24 (jako zewnetrzny caller
+  // bez sesji) nie przejdzie jej bez sekretu bypass. Produkcja nie ma tej ochrony wiec zbedne.
+  const statusUrl = new URL('/api/payment-notify', siteUrl)
+  if (process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_PROTECTION_BYPASS) {
+    statusUrl.searchParams.set('x-vercel-protection-bypass', process.env.VERCEL_PROTECTION_BYPASS)
+    statusUrl.searchParams.set('x-vercel-set-bypass-cookie', 'true')
+  }
+
   try {
     await notifySheet({
       action: 'create',
@@ -47,7 +55,7 @@ export default async function handler(req, res) {
       country: 'PL',
       language: 'pl',
       urlReturn: `${siteUrl}/#abonamenty`,
-      urlStatus: `${siteUrl}/api/payment-notify`,
+      urlStatus: statusUrl.toString(),
     })
 
     res.status(200).json({ link })
