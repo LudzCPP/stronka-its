@@ -3,8 +3,9 @@ import { registerTransaction } from '../lib/przelewy24.js'
 import { notifySheet } from '../lib/sheets.js'
 
 // Ceny ustalane po stronie serwera - nigdy nie ufamy kwocie przysłanej z przeglądarki.
+// TYMCZASOWO: cena Śniadaniowego obniżona do 1 zł na potrzeby testu płatności produkcyjnej - przywrócić do 85 po teście.
 const PLANS = {
-  sniadaniowy: { name: 'Abonament Śniadaniowy', price: 85 },
+  sniadaniowy: { name: 'Abonament Śniadaniowy', price: 1 },
   max: { name: 'Abonament Max', price: 125 },
 }
 

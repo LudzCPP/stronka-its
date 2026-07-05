@@ -5,7 +5,7 @@ const PLANS = [
   {
     id: 'sniadaniowy',
     name: 'Abonament Śniadaniowy',
-    price: 85,
+    price: 1, // TYMCZASOWO na potrzeby testu płatności produkcyjnej - przywrócić do 85
     badge: null,
     hoursLabel: 'Wejścia w godz. 6:00–13:00',
     features: [
