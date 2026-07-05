@@ -120,14 +120,31 @@ function CheckoutModal({ plan, onClose }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '' })
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError(null)
     setLoading(true)
-    // TODO: Replace with Przelewy24/PayU API - create transaction, redirect to payment URL
-    await new Promise(r => setTimeout(r, 1500))
-    setLoading(false)
-    setDone(true)
+
+    try {
+      const res = await fetch('/api/create-payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ planId: plan.id, ...form }),
+      })
+      const data = await res.json()
+
+      if (!res.ok || !data.link) {
+        throw new Error(data.error || 'Nie udało się zainicjować płatności')
+      }
+
+      setDone(true)
+      window.location.href = data.link
+    } catch (err) {
+      setError(err.message)
+      setLoading(false)
+    }
   }
 
   return (
@@ -205,6 +222,10 @@ function CheckoutModal({ plan, onClose }) {
                 className="w-full px-4 py-3 rounded-xl bg-[#080b14] border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#0075C4]/60 transition-colors text-base"
               />
             </FormField>
+
+            {error && (
+              <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">{error}</p>
+            )}
 
             <button
               type="submit"
