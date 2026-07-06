@@ -1,10 +1,11 @@
 import photo from '../assets/its2.jpg'
+import logoAdditional from '../assets/its_logo_additional.png'
 import AnimateIn from './AnimateIn'
 
 const STATS = [
   { value: "4,9/5", label: "Średnia ocen Google" },
   { value: "7 dni", label: "Tygodniowo do dyspozycji" },
-  { value: "6–24", label: "Godziny otwarcia każdego dnia" },
+  { value: "6 - 24", label: "Godziny otwarcia każdego dnia" },
 ]
 
 export default function About() {
@@ -12,17 +13,14 @@ export default function About() {
     <section id="about" className="py-24 bg-[#0f1423] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-
           <AnimateIn>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-[#0075C4]" />
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">O nas</span>
             </div>
-
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-6">
               Profesjonalne warunki<br />dla wymagających graczy
             </h2>
-
             <div className="space-y-4 text-gray-200 leading-relaxed text-base">
               <p>
                 Instytut Tenisa Stołowego to profesjonalny obiekt w sercu Łodzi, stworzony
@@ -35,7 +33,6 @@ export default function About() {
                 Tenisa Stołowego.
               </p>
             </div>
-
             <div className="mt-8 inline-flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-[#0075C4]/25">
               <div className="w-8 h-8 rounded-full bg-[#0075C4] flex items-center justify-center shrink-0">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -47,7 +44,6 @@ export default function About() {
                 <p className="text-sm text-gray-400">Łódzkiej Ligi Tenisa Stołowego</p>
               </div>
             </div>
-
             <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-white/10">
               {STATS.map((s) => (
                 <div key={s.label}>
@@ -59,14 +55,27 @@ export default function About() {
           </AnimateIn>
 
           <AnimateIn delay={150} className="relative">
+            {/* Tło pod zdjęciem */}
             <div className="absolute -inset-3 rounded-3xl bg-[#0075C4]/20 blur-xl" />
+            
+            {/* Zdjęcie główne */}
             <img
               src={photo}
               alt="Recepcja i szatnia Instytutu Tenisa Stołowego"
               className="relative rounded-2xl object-cover w-full aspect-[4/3] shadow-2xl shadow-black/60"
             />
+            
+            {/* NOWE LOGO - Pływający badge */}
+            <div className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full p-4 shadow-[0_0_30px_rgba(0,0,0,0.6)] flex items-center justify-center z-10 hover:scale-105 transition-transform duration-300 border-4 border-[#0f1423]">
+              <img 
+                src={logoAdditional} 
+                alt="ITS Logo Dodatkowe" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            {/* KONIEC NOWEGO LOGO */}
+            
           </AnimateIn>
-
         </div>
       </div>
     </section>
