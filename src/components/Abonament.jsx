@@ -7,9 +7,9 @@ const PLANS = [
     name: 'Abonament Śniadaniowy',
     price: 85,
     badge: null,
-    hoursLabel: 'Wejścia w godz. 6:00–13:00',
+    hoursLabel: 'Wejścia w godz. 6:00-13:00',
     features: [
-      'Dostęp do sali w godz. 6:00–13:00',
+      'Dostęp do sali w godz. 6:00-13:00',
       'Bez limitu wejść przez cały miesiąc',
       'Wszystkie stoły do dyspozycji',
       'Ważny 30 dni od zakupu',
@@ -21,9 +21,9 @@ const PLANS = [
     name: 'Abonament Max',
     price: 125,
     badge: 'Najpopularniejszy',
-    hoursLabel: 'Pełny dostęp 6:00–24:00',
+    hoursLabel: 'Pełny dostęp 6:00-24:00',
     features: [
-      'Pełny dostęp do sali 6:00–24:00',
+      'Pełny dostęp do sali 6:00-24:00',
       'Bez limitu wejść przez cały miesiąc',
       'Wszystkie stoły do dyspozycji',
       'Priorytet w godzinach szczytu',

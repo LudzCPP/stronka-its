@@ -5,9 +5,9 @@ import img3 from '../assets/its3.jpg'
 import AnimateIn from './AnimateIn'
 
 const IMAGES = [
-  { src: img1, alt: 'Stół do ping-ponga z latającymi piłeczkami' },
-  { src: img2, alt: 'Szatnia i recepcja' },
-  { src: img3, alt: 'Profesjonalny sprzęt Tibhar' },
+  { src: img1, alt: 'Stół do tenisa stołowego w sali ITS w Łodzi' },
+  { src: img2, alt: 'Szatnia i recepcja Instytutu Tenisa Stołowego' },
+  { src: img3, alt: 'Profesjonalny sprzęt do tenisa stołowego Tibhar' },
 ]
 
 export default function Gallery() {

@@ -23,7 +23,7 @@ export default function Footer() {
           </p>
           <div className="mt-4 space-y-1 text-sm text-gray-500">
             <p>ul. Śnieżna 5, 92-103 Łódź</p>
-            <p>Czynne codziennie 6:00–24:00</p>
+            <p>Czynne codziennie 6:00-24:00</p>
           </div>
         </div>
 

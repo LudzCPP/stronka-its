@@ -36,16 +36,16 @@ export default function Hero() {
           className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] max-w-3xl mb-6"
           style={{ animation: 'fadeUp 0.6s ease-out 0.25s both' }}
         >
-          Sala ping-ponga<br />
-          dostępna 7&nbsp;dni w&nbsp;tygodniu,<br />
-          od&nbsp;6:00 do&nbsp;24:00.
+          Tenis stołowy w&nbsp;Łodzi -<br />
+          sala ping-ponga czynna<br />
+          7&nbsp;dni w&nbsp;tygodniu
         </h1>
 
         <p
           className="text-lg sm:text-xl text-gray-200 max-w-xl mb-10 leading-relaxed"
           style={{ animation: 'fadeUp 0.6s ease-out 0.4s both' }}
         >
-          Rezerwacje stołów, abonamenty miesięczne i treningi indywidualne w jednym miejscu.
+          Czynne codziennie 6:00-24:00. Rezerwacje stołów, abonamenty miesięczne i treningi indywidualne w jednym miejscu.
         </p>
 
         <div
