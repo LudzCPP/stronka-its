@@ -55,26 +55,24 @@ export default function About() {
           </AnimateIn>
 
           <AnimateIn delay={150} className="relative">
-            {/* Tło pod zdjęciem */}
+            {/* Poświata pod zdjęciem */}
             <div className="absolute -inset-3 rounded-3xl bg-[#0075C4]/20 blur-xl" />
-            
+
             {/* Zdjęcie główne */}
             <img
               src={photo}
               alt="Recepcja i szatnia Instytutu Tenisa Stołowego"
               className="relative rounded-2xl object-cover w-full aspect-[4/3] shadow-2xl shadow-black/60"
             />
-            
-            {/* NOWE LOGO - Pływający badge */}
-            <div className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full p-4 shadow-[0_0_30px_rgba(0,0,0,0.6)] flex items-center justify-center z-10 hover:scale-105 transition-transform duration-300 border-4 border-[#0f1423]">
-              <img 
-                src={logoAdditional} 
-                alt="ITS Logo Dodatkowe" 
-                className="w-full h-full object-contain"
+
+            {/* Pieczęć z logo - osadzona w rogu zdjęcia */}
+            <div className="absolute -bottom-5 -right-4 sm:-bottom-7 sm:-right-7 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white border-[6px] border-[#0f1423] shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex items-center justify-center z-10 transition-transform duration-300 hover:scale-105">
+              <img
+                src={logoAdditional}
+                alt="Logo Instytutu Tenisa Stołowego"
+                className="w-4/5 h-4/5 object-contain"
               />
             </div>
-            {/* KONIEC NOWEGO LOGO */}
-            
           </AnimateIn>
         </div>
       </div>
