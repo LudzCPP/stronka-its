@@ -2,17 +2,17 @@ import AnimateIn from './AnimateIn'
 
 const TESTIMONIALS = [
   {
-    name: "Michał Majchrzak",
+    name: "Michał M.",
     rating: 5,
     body: "Świetne miejsce, długie godziny otwarcia, wszystko co potrzebne aby pograć, nie ma problemu z miejscem do parkowania.",
   },
   {
-    name: "Robert Lesiak",
+    name: "Robert L.",
     rating: 5,
     body: "Super miejscówka dla chcących pograć w tenisa stołowego. Profesjonalny sprzęt, który zadowoli zarówno amatorów jak i zawodowych graczy. Bardzo przystępne ceny!",
   },
   {
-    name: "Miro Mirek",
+    name: "Miro M.",
     rating: 4,
     body: "Fajne miejsce żeby pograć w tenisa stołowego. Wcześniej trzeba rezerwować stoły. Ceny bardzo przystępne.",
   },
