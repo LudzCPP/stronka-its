@@ -28,7 +28,7 @@ export default function Testimonials() {
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Co mówią gracze
+              Co mówią gracze o naszej sali
             </h2>
             <div className="inline-flex items-center gap-2 text-sm text-gray-400">
               <GoogleIcon />

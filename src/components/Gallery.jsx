@@ -23,7 +23,7 @@ export default function Gallery() {
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">Galeria</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-14">
-            Nasza sala
+            Nasza sala tenisa stołowego w Łodzi
           </h2>
         </AnimateIn>
 

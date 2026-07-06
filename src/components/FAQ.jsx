@@ -38,7 +38,7 @@ export default function FAQ() {
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">FAQ</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-14">
-            Najczęstsze pytania
+            Najczęstsze pytania o rezerwacje i grę
           </h2>
         </AnimateIn>
 

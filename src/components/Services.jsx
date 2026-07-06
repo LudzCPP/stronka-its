@@ -38,7 +38,7 @@ export default function Services() {
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 gap-4">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-              Co oferujemy
+              Co oferujemy graczom
             </h2>
             <p className="text-gray-300 max-w-sm lg:text-right text-base">
               Rezerwacje, abonamenty, treningi i turnieje - wszystko w jednym miejscu.

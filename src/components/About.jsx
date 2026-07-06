@@ -19,7 +19,7 @@ export default function About() {
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0075C4]">O nas</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-6">
-              Profesjonalne warunki<br />dla wymagających graczy
+              Profesjonalne warunki<br />dla graczy tenisa stołowego
             </h2>
             <div className="space-y-4 text-gray-200 leading-relaxed text-base">
               <p>
