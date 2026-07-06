@@ -2,16 +2,34 @@ import AnimateIn from './AnimateIn'
 
 const TESTIMONIALS = [
   {
+    name: "Michał Majchrzak",
+    rating: 5,
+    body: "Świetne miejsce, długie godziny otwarcia, wszystko co potrzebne aby pograć, nie ma problemu z miejscem do parkowania.",
+  },
+  {
+    name: "Robert Lesiak",
+    rating: 5,
+    body: "Super miejscówka dla chcących pograć w tenisa stołowego. Profesjonalny sprzęt, który zadowoli zarówno amatorów jak i zawodowych graczy. Bardzo przystępne ceny!",
+  },
+  {
+    name: "Miro Mirek",
+    rating: 4,
+    body: "Fajne miejsce żeby pograć w tenisa stołowego. Wcześniej trzeba rezerwować stoły. Ceny bardzo przystępne.",
+  },
+  {
     name: "Adam W.",
+    rating: 5,
     body: "Świetne miejsce, super atmosfera, czysto. Super!",
   },
   {
-    name: "Maksymilian",
-    body: "Spoko miejsce dobra cena Polecam",
+    name: "Marcin K.",
+    rating: 5,
+    body: "Kameralny klub bez zadęcia. Fajni ludzie.",
   },
   {
-    name: "Marcin K.",
-    body: "Kameralny klub bez zadęcia. Fajni ludzie.",
+    name: "Maksymilian",
+    rating: 5,
+    body: "Spoko miejsce, dobra cena. Polecam.",
   },
 ]
 
@@ -37,11 +55,11 @@ export default function Testimonials() {
           </div>
         </AnimateIn>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t, i) => (
-            <AnimateIn key={t.name} delay={i * 100}>
+            <AnimateIn key={t.name} delay={i * 80}>
               <div className="flex flex-col p-7 bg-[#080b14] rounded-2xl border border-white/8 h-full">
-                <Stars />
+                <Stars rating={t.rating} />
                 <blockquote className="mt-4 flex-1 text-gray-200 leading-relaxed text-base">
                   &ldquo;{t.body}&rdquo;
                 </blockquote>
@@ -56,16 +74,33 @@ export default function Testimonials() {
           ))}
         </div>
 
+        <AnimateIn>
+          <div className="mt-12 flex justify-center">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Instytut+Tenisa+Sto%C5%82owego+%C5%81%C3%B3d%C5%BA+%C5%9Anie%C5%BCna+5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 min-h-[48px] px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 hover:border-[#0075C4]/50 transition-all duration-200"
+            >
+              <GoogleIcon />
+              Zobacz wszystkie 67 opinii w Google
+              <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </AnimateIn>
+
       </div>
     </section>
   )
 }
 
-function Stars() {
+function Stars({ rating = 5 }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" aria-label={`Ocena ${rating} na 5`}>
       {[1,2,3,4,5].map((i) => (
-        <svg key={i} className="w-4 h-4 fill-amber-400 text-amber-400" viewBox="0 0 20 20">
+        <svg key={i} className={`w-4 h-4 ${i <= rating ? 'fill-amber-400' : 'fill-white/15'}`} viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
