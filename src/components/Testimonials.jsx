@@ -55,9 +55,11 @@ export default function Testimonials() {
           </div>
         </AnimateIn>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile: poziomy karuzel (scroll-snap, nastepna karta wystaje = sygnal do swipe).
+            sm+: klasyczna siatka 2/3 kolumny. Full-bleed przez -mx-6 px-6, scrollbar ukryty. */}
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-pl-6 sm:scroll-pl-0 -mx-6 px-6 sm:mx-0 sm:px-0 pb-4 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {TESTIMONIALS.map((t, i) => (
-            <AnimateIn key={t.name} delay={i * 80}>
+            <AnimateIn key={t.name} delay={i * 80} className="snap-start shrink-0 w-[82%] sm:w-auto">
               <div className="flex flex-col p-7 bg-[#080b14] rounded-2xl border border-white/8 h-full">
                 <Stars rating={t.rating} />
                 <blockquote className="mt-4 flex-1 text-gray-200 leading-relaxed text-base">
@@ -73,6 +75,13 @@ export default function Testimonials() {
             </AnimateIn>
           ))}
         </div>
+
+        <p className="sm:hidden mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-400">
+          Przesuń w bok, aby zobaczyć więcej opinii
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </p>
 
         <AnimateIn>
           <div className="mt-12 flex justify-center">
