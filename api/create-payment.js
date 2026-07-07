@@ -50,7 +50,10 @@ export default async function handler(req, res) {
       sessionId,
       amount,
       currency: 'PLN',
-      description: plan.name,
+      // Nazwisko w opisie - widoczne w kolumnie "Opis" na liscie transakcji w panelu P24.
+      description: `${plan.name} - ${name}`,
+      client: name,
+      phone,
       email,
       country: 'PL',
       language: 'pl',
