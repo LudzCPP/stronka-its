@@ -77,7 +77,7 @@ export default function Testimonials() {
         <AnimateIn>
           <div className="mt-12 flex justify-center">
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Instytut+Tenisa+Sto%C5%82owego+%C5%81%C3%B3d%C5%BA+%C5%9Anie%C5%BCna+5"
+              href="https://share.google/J2UGmhJ1PyYEfspkQ"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 min-h-[48px] px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 hover:border-[#0075C4]/50 transition-all duration-200"
