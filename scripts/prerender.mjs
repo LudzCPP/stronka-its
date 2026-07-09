@@ -79,7 +79,7 @@ async function prerender() {
   const isVercel = !!process.env.VERCEL
   const launchOptions = isVercel
     ? {
-        args: puppeteer.defaultArgs({ args: chromium.args, headless: 'shell' }),
+        args: await puppeteer.defaultArgs({ args: chromium.args, headless: 'shell' }),
         executablePath: await chromium.executablePath(),
         headless: 'shell',
       }
