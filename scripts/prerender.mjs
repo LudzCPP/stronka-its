@@ -2,7 +2,8 @@ import { createServer } from 'http'
 import { readFileSync, writeFileSync, statSync } from 'fs'
 import { extname, join, resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
+import chromium from '@sparticuz/chromium'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
@@ -71,10 +72,23 @@ async function prerender() {
   const { port } = server.address()
   const url = `http://127.0.0.1:${port}/`
 
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  })
+  // Na Vercelu (build w kontenerze Linux) pelny puppeteer nie dziala - brakuje
+  // bibliotek systemowych (np. libnspr4.so). @sparticuz/chromium to statycznie
+  // zlinkowany Chromium zbudowany pod takie srodowiska. Lokalnie (Windows/Mac dev)
+  // ten binarny plik jest niekompatybilny, wiec uzywamy zainstalowanego Chrome.
+  const isVercel = !!process.env.VERCEL
+  const launchOptions = isVercel
+    ? {
+        args: puppeteer.defaultArgs({ args: chromium.args, headless: 'shell' }),
+        executablePath: await chromium.executablePath(),
+        headless: 'shell',
+      }
+    : {
+        channel: 'chrome',
+        headless: true,
+      }
+
+  const browser = await puppeteer.launch(launchOptions)
 
   try {
     const page = await browser.newPage()
