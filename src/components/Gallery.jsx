@@ -1,17 +1,77 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useLayoutEffect, useRef } from 'react'
 import img1 from '../assets/its1.jpg'
 import img2 from '../assets/its2.jpg'
 import img3 from '../assets/its3.jpg'
+import img4 from '../assets/its4.jpg'
+import img5 from '../assets/its5.jpg'
+import img6 from '../assets/its6.jpg'
+import img7 from '../assets/its7.jpg'
+import img8 from '../assets/its8.jpg'
 import AnimateIn from './AnimateIn'
 
 const IMAGES = [
   { src: img1, alt: 'Stół do tenisa stołowego w sali ITS w Łodzi' },
   { src: img2, alt: 'Szatnia i recepcja Instytutu Tenisa Stołowego' },
   { src: img3, alt: 'Profesjonalny sprzęt do tenisa stołowego Tibhar' },
+  { src: img4, alt: 'Sala tenisa stołowego z banerami zawodnikow ITS w Łodzi' },
+  { src: img5, alt: 'Widok sali ping-ponga - czerwona podloga, niebieskie sciany' },
+  { src: img6, alt: 'Tablica wynikow Tibhar na stole do tenisa stolowego' },
+  { src: img7, alt: 'Rakietka Butterfly i pilka na stole Tibhar w sali ITS' },
+  { src: img8, alt: 'Szatnia Instytutu Tenisa Stolowego w Łodzi' },
 ]
+
+const GAP = 12 // px, odpowiada gap-3
+
+function useItemsPerView() {
+  const [items, setItems] = useState(1)
+  useLayoutEffect(() => {
+    const update = () => {
+      const w = window.innerWidth
+      setItems(w >= 1024 ? 3 : w >= 640 ? 2 : 1)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+  return items
+}
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState(null)
+  const [start, setStart] = useState(0)
+  const [sliding, setSliding] = useState(false)
+  const [direction, setDirection] = useState(1)
+  const containerRef = useRef(null)
+  const [slotWidth, setSlotWidth] = useState(0)
+  const itemsPerView = useItemsPerView()
+
+  useLayoutEffect(() => {
+    const update = () => {
+      if (!containerRef.current) return
+      const w = containerRef.current.clientWidth
+      setSlotWidth((w - (itemsPerView - 1) * GAP) / itemsPerView)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [itemsPerView])
+
+  const go = (dir) => {
+    if (sliding || !slotWidth) return
+    setDirection(dir)
+    setSliding(true)
+  }
+  const prevSlide = () => go(-1)
+  const nextSlide = () => go(1)
+
+  const handleTransitionEnd = () => {
+    setStart(s => (s + direction + IMAGES.length) % IMAGES.length)
+    setSliding(false)
+  }
+
+  const ordered = Array.from({ length: IMAGES.length }, (_, k) => (start + k) % IMAGES.length)
+  const shift = slotWidth ? direction * (slotWidth + GAP) : 0
+  const translate = sliding ? -shift : 0
 
   return (
     <section id="galeria" className="py-24 bg-[#080b14] border-t border-white/10">
@@ -27,53 +87,57 @@ export default function Gallery() {
           </h2>
         </AnimateIn>
 
-        {/* Mobile: its1 + its3 */}
+        {/* Karuzel - 1 zdjecie na mobile, 2 na tablet, 3 na desktop (itemsPerView).
+            Caly pasek fizycznie sie przesuwa (transform translateX), a nie zanika/wjezdza -
+            po zakonczeniu animacji tablica sie "obraca" (start+1) i transform wraca do 0
+            bez przejscia, w tej samej klatce - stad brak widocznego skoku (efekt petli). */}
         <AnimateIn>
-          <div className="lg:hidden flex flex-col gap-4">
-            {[0, 2].map(i => (
-              <button
-                key={i}
-                onClick={() => setLightbox(i)}
-                className="rounded-2xl overflow-hidden aspect-video w-full cursor-zoom-in block"
+          <div className="relative">
+            <div ref={containerRef} className="overflow-hidden">
+              <div
+                className="flex"
+                style={{
+                  gap: `${GAP}px`,
+                  transform: `translateX(${translate}px)`,
+                  transition: sliding ? 'transform 0.45s ease-out' : 'none',
+                }}
+                onTransitionEnd={handleTransitionEnd}
               >
-                <img
-                  src={IMAGES[i].src}
-                  alt={IMAGES[i].alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </button>
-            ))}
-          </div>
-        </AnimateIn>
-
-        {/* Desktop: 2/3 + 1/3 stacked grid */}
-        <AnimateIn>
-          <div className="hidden lg:grid grid-cols-3 gap-3 h-[440px]">
-            <button
-              onClick={() => setLightbox(0)}
-              className="col-span-2 rounded-2xl overflow-hidden cursor-zoom-in"
-            >
-              <img
-                src={IMAGES[0].src}
-                alt={IMAGES[0].alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </button>
-            <div className="flex flex-col gap-3">
-              {[1, 2].map(i => (
-                <button
-                  key={i}
-                  onClick={() => setLightbox(i)}
-                  className="flex-1 rounded-2xl overflow-hidden cursor-zoom-in"
-                >
-                  <img
-                    src={IMAGES[i].src}
-                    alt={IMAGES[i].alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </button>
-              ))}
+                {ordered.map(i => (
+                  <button
+                    key={i}
+                    onClick={() => !sliding && setLightbox(i)}
+                    style={{ width: slotWidth ? `${slotWidth}px` : `${100 / itemsPerView}%` }}
+                    className="shrink-0 rounded-2xl overflow-hidden cursor-zoom-in aspect-[4/3]"
+                  >
+                    <img
+                      src={IMAGES[i].src}
+                      alt={IMAGES[i].alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
+
+            <button
+              onClick={prevSlide}
+              className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-[#080b14] border border-white/15 text-white hover:bg-[#0075C4] hover:border-[#0075C4] transition-colors"
+              aria-label="Poprzednie zdjęcie"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-[#080b14] border border-white/15 text-white hover:bg-[#0075C4] hover:border-[#0075C4] transition-colors"
+              aria-label="Następne zdjęcie"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </AnimateIn>
 

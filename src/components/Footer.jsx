@@ -1,4 +1,6 @@
 import logo from '../assets/its_logo-removebg-preview.png'
+import medicoverCard from '../assets/medicover-sport-card.png'
+import fitprofitCard from '../assets/fitprofit-card.png'
 
 const NAV_LINKS = [
   { label: 'O nas',       href: '#about' },
@@ -85,6 +87,19 @@ export default function Footer() {
           </ul>
         </div>
 
+      </div>
+
+      {/* Karty benefitowe */}
+      <div className="border-t border-white/6 py-8 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <p className="text-xs font-bold tracking-[0.18em] uppercase text-gray-500">
+            Honorujemy karty benefitowe
+          </p>
+          <div className="flex items-center gap-4">
+            <img src={medicoverCard} alt="Karta Medicover Sport" className="h-12 sm:h-14 w-auto drop-shadow-lg" />
+            <img src={fitprofitCard} alt="Karta FitProfit" className="h-12 sm:h-14 w-auto drop-shadow-lg" />
+          </div>
+        </div>
       </div>
 
       {/* Pasek dolny */}

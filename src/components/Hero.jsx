@@ -87,9 +87,9 @@ export default function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
             Medicover Sport
           </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-gray-600" />
-            FitProfit - wkrotce
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+            FitProfit
           </span>
         </div>
       </div>
