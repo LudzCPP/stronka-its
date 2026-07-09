@@ -64,7 +64,10 @@ export default function Gallery() {
   const prevSlide = () => go(-1)
   const nextSlide = () => go(1)
 
-  const handleTransitionEnd = () => {
+  const handleTransitionEnd = (e) => {
+    // transitionend bubluje az z dzieci (np. hover:scale-105 na zdjeciach) - reagujemy
+    // tylko na przejscie samego paska, inaczej samo najechanie mysza przeskakiwalo karuzel
+    if (e.target !== e.currentTarget) return
     setStart(s => (s + direction + IMAGES.length) % IMAGES.length)
     setSliding(false)
   }
