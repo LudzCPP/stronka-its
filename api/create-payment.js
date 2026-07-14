@@ -4,7 +4,7 @@ import { notifySheet } from '../lib/sheets.js'
 
 // Ceny ustalane po stronie serwera - nigdy nie ufamy kwocie przysłanej z przeglądarki.
 const PLANS = {
-  sniadaniowy: { name: 'Abonament Śniadaniowy', price: 1 },
+  sniadaniowy: { name: 'Abonament Śniadaniowy', price: 85 },
   max: { name: 'Abonament Max', price: 125 },
 }
 
