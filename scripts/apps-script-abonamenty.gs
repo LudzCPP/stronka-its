@@ -5,14 +5,16 @@
 // 1. Arkusz Google Sheets, zakładka "Abonamenci", nagłówki w wierszu 1 (kolumny A-J):
 //    Imię i nazwisko | Email | Telefon | Plan | Cena | Data zakupu |
 //    Data wygaśnięcia | Status | ID transakcji P24 | Session ID
-// 2. W arkuszu: Rozszerzenia -> Apps Script. Wklej ten kod (SECRET już wypełniony).
+// 2. W arkuszu: Rozszerzenia -> Apps Script. Wklej ten kod, podmień SECRET
+//    ponizej na wlasna losowa wartosc (musi byc identyczna jak APPS_SCRIPT_SECRET
+//    w Vercelu) - NIE commituj prawdziwej wartosci do repo, to tylko kopia referencyjna.
 // 3. Wdróż -> Nowe wdrożenie -> Aplikacja internetowa (Web App):
 //    - Wykonaj jako: Ja
 //    - Dostęp mają: Każdy (Anyone)
 // 4. Skopiowany URL wdrożenia -> APPS_SCRIPT_URL w .env.local i w Vercelu.
 
 const SHEET_NAME = 'Abonamenci'
-const SECRET = 'SECRET_USUNIETY_Z_HISTORII'
+const SECRET = 'PODMIEN_NA_WLASNY_LOSOWY_SEKRET'
 const OWNER_EMAIL = 'tenisstolowy.lodz@gmail.com'
 
 function doPost(e) {
