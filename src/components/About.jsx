@@ -62,6 +62,10 @@ export default function About() {
             <img
               src={photo}
               alt="Recepcja i szatnia Instytutu Tenisa Stołowego"
+              loading="lazy"
+              decoding="async"
+              width="2048"
+              height="1365"
               className="relative rounded-2xl object-cover w-full aspect-[4/3] shadow-2xl shadow-black/60"
             />
 
@@ -70,6 +74,10 @@ export default function About() {
               <img
                 src={logoAdditional}
                 alt="Logo Instytutu Tenisa Stołowego"
+                loading="lazy"
+                decoding="async"
+                width="500"
+                height="500"
                 className="w-4/5 h-4/5 object-contain"
               />
             </div>

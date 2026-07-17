@@ -116,6 +116,10 @@ export default function Gallery() {
                     <img
                       src={IMAGES[i].src}
                       alt={IMAGES[i].alt}
+                      loading="lazy"
+                      decoding="async"
+                      width="2048"
+                      height="1365"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </button>
@@ -229,6 +233,9 @@ function Lightbox({ images, index, onClose }) {
           key={current}
           src={images[current].src}
           alt={images[current].alt}
+          decoding="async"
+          width="2048"
+          height="1365"
           className="max-w-[90vw] max-h-[85vh] object-contain rounded-xl shadow-2xl"
         />
       </div>

@@ -8,6 +8,8 @@ export default function Hero() {
         src={heroBg}
         alt="Sala Instytutu Tenisa Stołowego w Łodzi"
         fetchPriority="high"
+        width="2048"
+        height="1366"
         className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Silna ciemna warstwa bazowa - gwarantuje czytelność tekstu */}
@@ -23,6 +25,8 @@ export default function Hero() {
           <img
             src={logo}
             alt="Instytut Tenisa Stołowego"
+            width="360"
+            height="366"
             className="h-20 sm:h-28 w-auto drop-shadow-2xl"
             style={{ filter: 'drop-shadow(0 0 24px rgba(0,117,196,0.45))' }}
           />

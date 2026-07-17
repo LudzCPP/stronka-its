@@ -19,7 +19,7 @@ export default function Footer() {
 
         {/* Logo + adres */}
         <div>
-          <img src={logo} alt="Instytut Tenisa Stołowego" className="h-14 w-auto mb-4 opacity-90" />
+          <img src={logo} alt="Instytut Tenisa Stołowego" loading="lazy" decoding="async" width="360" height="366" className="h-14 w-auto mb-4 opacity-90" />
           <p className="text-gray-400 text-sm leading-relaxed">
             Profesjonalna sala tenisa stołowego<br />w sercu Łodzi.
           </p>
@@ -96,8 +96,8 @@ export default function Footer() {
             Honorujemy karty benefitowe
           </p>
           <div className="flex items-center gap-4">
-            <img src={medicoverCard} alt="Karta Medicover Sport" className="h-12 sm:h-14 w-auto drop-shadow-lg" />
-            <img src={fitprofitCard} alt="Karta FitProfit" className="h-12 sm:h-14 w-auto drop-shadow-lg" />
+            <img src={medicoverCard} alt="Karta Medicover Sport" loading="lazy" decoding="async" width="495" height="320" className="h-12 sm:h-14 w-auto drop-shadow-lg" />
+            <img src={fitprofitCard} alt="Karta FitProfit" loading="lazy" decoding="async" width="497" height="320" className="h-12 sm:h-14 w-auto drop-shadow-lg" />
           </div>
         </div>
       </div>
