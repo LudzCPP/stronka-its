@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import logo from '../assets/its_logo-removebg-preview.png'
+import logo from '../assets/its_logo-removebg-preview.webp'
 
 const LINKS = [
   ['#about', 'O nas'],

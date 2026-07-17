@@ -1,11 +1,15 @@
-import heroBg from '../assets/its1.jpg'
-import logo from '../assets/its_logo-removebg-preview.png'
+import heroBg from '../assets/its1.webp'
+import heroBg1280 from '../assets/its1-1280.webp'
+import heroBg768 from '../assets/its1-768.webp'
+import logo from '../assets/its_logo-removebg-preview.webp'
 
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-end overflow-hidden">
       <img
         src={heroBg}
+        srcSet={`${heroBg768} 768w, ${heroBg1280} 1280w, ${heroBg} 2048w`}
+        sizes="100vw"
         alt="Sala Instytutu Tenisa Stołowego w Łodzi"
         fetchPriority="high"
         width="2048"

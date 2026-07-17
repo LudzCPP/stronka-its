@@ -1,5 +1,5 @@
-import photo from '../assets/its2.jpg'
-import logoAdditional from '../assets/its_logo_additional.png'
+import photo from '../assets/its2.webp'
+import logoAdditional from '../assets/its_logo_additional.webp'
 import AnimateIn from './AnimateIn'
 
 const STATS = [

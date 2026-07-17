@@ -1,4 +1,4 @@
-import logo from '../assets/its_logo-removebg-preview.png'
+import logo from '../assets/its_logo-removebg-preview.webp'
 import medicoverCard from '../assets/medicover-sport-card.png'
 import fitprofitCard from '../assets/fitprofit-card.png'
 
