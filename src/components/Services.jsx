@@ -9,10 +9,13 @@ const SERVICES = [
     title: "Abonamenty miesięczne",
     description: "Nieograniczony dostęp do sali przez cały miesiąc - abonament śniadaniowy od 85 zł lub max za 125 zł.",
     href: "#abonamenty",
+    ctaLabel: "Kup abonament →",
   },
   {
     title: "Treningi indywidualne",
-    description: "Praca 1-na-1 z trenerem przez 60 lub 90 minut - skuteczna droga do poprawy techniki i wyników.",
+    description: "Praca 1-na-1 z trenerem przez 60 lub 90 minut - skuteczna droga do poprawy techniki i wyników. Zadzwoń, aby ustalić termin.",
+    href: "tel:+48533644535",
+    ctaLabel: "Zadzwoń i umów trening →",
   },
   {
     title: "Turnieje i miniturnieje",
@@ -68,7 +71,7 @@ export default function Services() {
                   </div>
                 )}
                 {service.href && (
-                  <span className="inline-block mt-4 text-xs font-semibold text-[#0075C4] group-hover:underline">Kup abonament →</span>
+                  <span className="inline-block mt-4 text-xs font-semibold text-[#0075C4] group-hover:underline">{service.ctaLabel}</span>
                 )}
               </>
             )
