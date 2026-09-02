@@ -239,8 +239,6 @@ function CheckoutModal({ plan, onClose }) {
               <span>
                 Akceptuję{' '}
                 <a href="/regulamin.html" target="_blank" rel="noopener noreferrer" className="text-[#0075C4] hover:text-blue-400 underline">regulamin</a>
-                {' '}oraz{' '}
-                <a href="/polityka-prywatnosci.html" target="_blank" rel="noopener noreferrer" className="text-[#0075C4] hover:text-blue-400 underline">politykę prywatności</a>
               </span>
             </label>
 

@@ -108,7 +108,6 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Instytut Tenisa Stołowego · Łódź</p>
           <div className="flex items-center gap-4">
             <a href="/regulamin.html" className="hover:text-gray-300 transition-colors">Regulamin</a>
-            <a href="/polityka-prywatnosci.html" className="hover:text-gray-300 transition-colors">Polityka prywatności</a>
           </div>
         </div>
       </div>
