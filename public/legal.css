@@ -1,0 +1,127 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #080b14;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 11, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 18px 24px;
+}
+
+.back-link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-link:hover { color: #ffffff; }
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.eyebrow-line {
+  height: 1px;
+  width: 32px;
+  background: #0075C4;
+}
+
+.eyebrow-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0075C4;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.company-card {
+  background: #0f1423;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.company-card strong {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.company-card p { margin: 4px 0; }
+
+h2 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 40px 0 16px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section:first-of-type h2 { border-top: none; padding-top: 0; }
+
+ol {
+  padding-left: 22px;
+  margin: 0 0 8px;
+}
+
+ol[type="a"] li {
+  padding-left: 4px;
+  margin-bottom: 10px;
+  color: #e5e7eb;
+  font-size: 16px;
+}
+
+p {
+  color: #e5e7eb;
+  font-size: 16px;
+}
+
+a { color: #0075C4; }
+a:hover { color: #3b95d6; }
+
+.updated {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  color: #6b7280;
+}

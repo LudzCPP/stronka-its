@@ -118,6 +118,7 @@ export default function Abonament() {
 
 function CheckoutModal({ plan, onClose }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '' })
+  const [accepted, setAccepted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
   const [error, setError] = useState(null)
@@ -227,9 +228,25 @@ function CheckoutModal({ plan, onClose }) {
               <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">{error}</p>
             )}
 
+            <label className="flex items-start gap-3 text-sm text-gray-300 cursor-pointer">
+              <input
+                type="checkbox"
+                required
+                checked={accepted}
+                onChange={e => setAccepted(e.target.checked)}
+                className="mt-0.5 w-4 h-4 shrink-0 accent-[#0075C4]"
+              />
+              <span>
+                Akceptuję{' '}
+                <a href="/regulamin.html" target="_blank" rel="noopener noreferrer" className="text-[#0075C4] hover:text-blue-400 underline">regulamin</a>
+                {' '}oraz{' '}
+                <a href="/polityka-prywatnosci.html" target="_blank" rel="noopener noreferrer" className="text-[#0075C4] hover:text-blue-400 underline">politykę prywatności</a>
+              </span>
+            </label>
+
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || !accepted}
               className="w-full mt-2 py-4 px-6 rounded-xl bg-[#0075C4] text-white font-bold text-base min-h-[52px] hover:bg-blue-700 transition-all duration-200 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (

@@ -104,9 +104,12 @@ export default function Footer() {
 
       {/* Pasek dolny */}
       <div className="border-t border-white/6 py-5 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
           <p>© {new Date().getFullYear()} Instytut Tenisa Stołowego · Łódź</p>
-          <p>Wszelkie prawa zastrzeżone</p>
+          <div className="flex items-center gap-4">
+            <a href="/regulamin.html" className="hover:text-gray-300 transition-colors">Regulamin</a>
+            <a href="/polityka-prywatnosci.html" className="hover:text-gray-300 transition-colors">Polityka prywatności</a>
+          </div>
         </div>
       </div>
     </footer>
